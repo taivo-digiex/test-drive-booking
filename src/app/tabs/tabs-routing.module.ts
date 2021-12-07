@@ -20,6 +20,10 @@ const routes: Routes = [
         loadChildren: () => import('../tab3/tab3.module').then(m => m.Tab3PageModule)
       },
       {
+        path: '**',
+        loadChildren: () => import('../page-not-found/page-not-found.module').then( m => m.PageNotFoundPageModule)
+      },
+      {
         path: '',
         redirectTo: '/tabs/home',
         pathMatch: 'full'
@@ -30,7 +34,11 @@ const routes: Routes = [
     path: '',
     redirectTo: '/tabs/home',
     pathMatch: 'full'
-  }
+  },
+  {
+    path: '**',
+    loadChildren: () => import('../page-not-found/page-not-found.module').then( m => m.PageNotFoundPageModule)
+  },
 ];
 
 @NgModule({
