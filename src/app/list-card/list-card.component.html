@@ -29,17 +29,17 @@
     </ion-card-content>
   </ion-card>
 </ion-list> -->
-
+<p id="demo"></p>
 <ion-list *ngFor="let car of data">
-  <ion-tab-button tab="vehicle-detail/{{ car.id }}">
-    <ion-card (click)="getVehicle(car.id)">
+  <!-- <ion-tab-button tab="vehicle-detail/{{ car.id }}"> -->
+    <ion-card (click)="getVehicle(car.id)" href="tabs/vehicle-detail/{{ car.id }}">
       <ion-card-content>
         <ion-img src="{{ car.img }}"></ion-img>
         <ion-card-title>{{ car.brand }} {{ car.name }}</ion-card-title>
         <ion-card-subtitle>{{ car.year }}</ion-card-subtitle>
       </ion-card-content>
     </ion-card>
-  </ion-tab-button>
+  <!-- </ion-tab-button> -->
 </ion-list>
 
 <ion-infinite-scroll (ionInfinite)="loadData($event)">

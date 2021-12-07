@@ -8,7 +8,7 @@ import { IonInfiniteScroll } from '@ionic/angular';
 })
 export class ListCardComponent implements OnInit {
   @ViewChild(IonInfiniteScroll) infiniteScroll: IonInfiniteScroll;
-  
+
   constructor() {}
 
   ngOnInit() {}
@@ -113,9 +113,23 @@ export class ListCardComponent implements OnInit {
   }
 
   handleInput(event) {
+    // const query = event.target.value.toLowerCase();
+    // this.data.forEach((e) => {
+    //   const lowerBrand = e.brand.toLowerCase();
+    //   const lowerName = e.name.toLowerCase();
+    //   if (
+    //     lowerBrand.includes(query) ||
+    //     lowerName.includes(query) ||
+    //     lowerBrand.concat(' ', lowerName).includes(query)
+    //   ) {
+    //     const res = e.brand.concat(' ', e.name);
+    //     document.getElementById('demo').innerHTML = res;
+    //     console.log(res);
+    //   }
+    // });
+
     const query = event.target.value.toLowerCase();
-    // console.log(query);
-    this.data.forEach((e) => {
+    this.data.find((e) => {
       const lowerBrand = e.brand.toLowerCase();
       const lowerName = e.name.toLowerCase();
       if (
@@ -123,7 +137,9 @@ export class ListCardComponent implements OnInit {
         lowerName.includes(query) ||
         lowerBrand.concat(' ', lowerName).includes(query)
       ) {
-        console.log(e.brand, e.name);
+        const res = e.brand.concat(' ', e.name);
+        document.getElementById('demo').innerHTML = res;
+        console.log(res);
       }
     });
   }
