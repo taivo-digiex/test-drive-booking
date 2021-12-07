@@ -1,29 +1,45 @@
-<!-- <ion-searchbar animated slot="fixed"></ion-searchbar> -->
-<ion-list *ngFor="let car of data">
+<ion-searchbar animated (search)="handleInput($event)"></ion-searchbar>
+<!-- <ion-list *ngFor="let car of data">
   <ion-card>
     <ion-card-content>
-      <ion-img
-        src="https://carsguide-res.cloudinary.com/image/upload/f_auto,fl_lossy,q_auto,t_cg_hero_low/v1/editorial/vhs/Honda-NSX.png"
-      ></ion-img>
-      <!-- <ion-button fill="clear"
-        ><ion-icon
-          [ios]="detailicon + '-outline'"
-          [md]="detailicon + '-sharp'"
-        ></ion-icon
-      ></ion-button> -->
-      <ion-card-title>{{ car.car }} - {{ car.year }}</ion-card-title>
-      <ion-card-subtitle>{{ car.desc }}</ion-card-subtitle>
-      <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-        <ion-fab-button>
-          <ion-icon
-            [ios]="detailicon + '-outline'"
-            [md]="detailicon + '-sharp'"
-          >
-          </ion-icon>
-        </ion-fab-button>
-      </ion-fab>
+      <ion-img src="{{ car.img }}"></ion-img>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-card-title>{{ car.brand }} {{ car.name }}</ion-card-title>
+            <ion-card-subtitle>{{ car.year }}</ion-card-subtitle>
+          </ion-col>
+          <ion-col size="3">
+            <ion-button
+              vertical="center"
+              horizontal="end"
+              (click)="getVehicle(car.id)"
+              fill="clear"
+              size="small"
+            >
+              <ion-icon
+                [ios]="detailicon + '-outline'"
+                [md]="detailicon + '-sharp'"
+              >
+              </ion-icon>
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
     </ion-card-content>
   </ion-card>
+</ion-list> -->
+
+<ion-list *ngFor="let car of data">
+  <ion-tab-button tab="vehicle-detail/{{ car.id }}">
+    <ion-card (click)="getVehicle(car.id)">
+      <ion-card-content>
+        <ion-img src="{{ car.img }}"></ion-img>
+        <ion-card-title>{{ car.brand }} {{ car.name }}</ion-card-title>
+        <ion-card-subtitle>{{ car.year }}</ion-card-subtitle>
+      </ion-card-content>
+    </ion-card>
+  </ion-tab-button>
 </ion-list>
 
 <ion-infinite-scroll (ionInfinite)="loadData($event)">
