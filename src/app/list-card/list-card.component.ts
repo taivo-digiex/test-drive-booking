@@ -1,6 +1,7 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 
 import { IonInfiniteScroll } from '@ionic/angular';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-list-card',
   templateUrl: './list-card.component.html',
@@ -9,7 +10,7 @@ import { IonInfiniteScroll } from '@ionic/angular';
 export class ListCardComponent implements OnInit {
   @ViewChild(IonInfiniteScroll) infiniteScroll: IonInfiniteScroll;
 
-  constructor() {}
+  constructor(private route: Router) {}
 
   ngOnInit() {
     this.showVehicle();
@@ -126,7 +127,8 @@ export class ListCardComponent implements OnInit {
   }
 
   getVehicle(carId: number) {
-    console.log('get', carId);
+    console.log('vehicle-detail/', carId);
+    this.route.navigate(['vehicle-detail/', carId]);
   }
 
   handleInput(event) {
@@ -146,18 +148,28 @@ export class ListCardComponent implements OnInit {
     // });
 
     const query = event.target.value.toLowerCase();
-    this.data.find((e) => {
-      const lowerBrand = e.brand.toLowerCase();
-      const lowerName = e.name.toLowerCase();
-      if (
-        lowerBrand.includes(query) ||
-        lowerName.includes(query) ||
-        lowerBrand.concat(' ', lowerName).includes(query)
-      ) {
-        const res = e.brand.concat(' ', e.name);
-        document.getElementById('demo').innerHTML = res;
-        console.log(res);
-      }
-    });
+    if (query == null) {
+      return this.data;
+    } else {
+      this.data = this.data.filter(
+        (e) =>
+          e.name.toLowerCase().includes(query) ||
+          e.brand.toLowerCase().includes(query)
+      );
+    }
+    console.log(this.data);
+    // this.data.find((e) => {
+    //   const lowerBrand = e.brand.toLowerCase();
+    //   const lowerName = e.name.toLowerCase();
+    //   if (
+    //     lowerBrand.includes(query) ||
+    //     lowerName.includes(query) ||
+    //     lowerBrand.concat(' ', lowerName).includes(query)
+    //   ) {
+    //     const res = e.brand.concat(' ', e.name);
+    //     document.getElementById('demo').innerHTML = res;
+    //     console.log(res);
+    //   }
+    // });
   }
 }
