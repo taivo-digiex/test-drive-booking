@@ -1,16 +1,29 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { VehicleDetailComponent } from './vehicle-detail/vehicle-detail.component';
 
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
+    loadChildren: () =>
+      import('./tabs/tabs.module').then((m) => m.TabsPageModule),
   },
+  {
+    path: 'vehicle-detail/:carId',
+    component: VehicleDetailComponent
+  },
+  {
+    path: '**',
+    loadChildren: () =>
+      import('./page-not-found/page-not-found.module').then(
+        (m) => m.PageNotFoundPageModule
+      ),
+  }
 ];
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
+    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules }),
   ],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class AppRoutingModule {}
