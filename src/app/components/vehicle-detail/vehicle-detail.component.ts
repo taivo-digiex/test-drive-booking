@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Location } from '@angular/common';
+
 @Component({
   selector: 'app-vehicle-detail',
   templateUrl: './vehicle-detail.component.html',
   styleUrls: ['./vehicle-detail.component.scss'],
 })
 export class VehicleDetailComponent implements OnInit {
-  constructor(private router: Router) {}
+  constructor(private router: Router, private location: Location) {}
 
   ngOnInit() {
     this.getVehicleDetail();
@@ -22,6 +24,7 @@ export class VehicleDetailComponent implements OnInit {
       engs: [
         { type: 'VTEC', fuel: 'Gas' },
         { type: 'VTEC', fuel: 'Diesel' },
+        { type: 'VTEC', fuel: 'Hybrid' },
       ],
       designs: [
         { interior: 'Standard' },
@@ -208,5 +211,9 @@ export class VehicleDetailComponent implements OnInit {
     const eng = this.data;
     const design = this.data;
     console.log('booked', vehicleName);
+  }
+
+  backButton() {
+    this.location.back();
   }
 }

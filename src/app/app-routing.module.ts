@@ -1,24 +1,24 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { VehicleDetailComponent } from './vehicle-detail/vehicle-detail.component';
+import { VehicleDetailComponent } from '../app/components/vehicle-detail/vehicle-detail.component';
 
 const routes: Routes = [
   {
     path: '',
     loadChildren: () =>
-      import('./tabs/tabs.module').then((m) => m.TabsPageModule),
+      import('./pages/tabs/tabs.module').then((m) => m.TabsPageModule),
   },
   {
     path: 'vehicle-detail/:carId',
-    component: VehicleDetailComponent
+    component: VehicleDetailComponent,
   },
   {
     path: '**',
     loadChildren: () =>
-      import('./page-not-found/page-not-found.module').then(
+      import('./pages/page-not-found/page-not-found.module').then(
         (m) => m.PageNotFoundPageModule
       ),
-  }
+  },
 ];
 @NgModule({
   imports: [
