@@ -19,6 +19,15 @@ export class VehicleDetailComponent implements OnInit {
       year: 'N/A',
       desc: 'New car',
       img: 'https://carsguide-res.cloudinary.com/image/upload/f_auto,fl_lossy,q_auto,t_cg_hero_low/v1/editorial/vhs/Honda-NSX.png',
+      engs: [
+        { type: 'VTEC', fuel: 'Gas' },
+        { type: 'VTEC', fuel: 'Diesel' },
+      ],
+      designs: [
+        { interior: 'Standard' },
+        { interior: 'Premium' },
+        { interior: 'Sport' },
+      ],
     },
     {
       id: 2,
@@ -27,6 +36,15 @@ export class VehicleDetailComponent implements OnInit {
       year: 'N/A',
       desc: 'New car',
       img: 'https://saigonngoisao.com.vn/vnt_upload/product/color/magma_grey_zeta.png',
+      engs: [
+        { type: 'VTEC', fuel: 'Gas' },
+        { type: 'VTEC', fuel: 'Diesel' },
+      ],
+      designs: [
+        { interior: 'Standard' },
+        { interior: 'Premium' },
+        { interior: 'Sport' },
+      ],
     },
     {
       id: 3,
@@ -35,6 +53,15 @@ export class VehicleDetailComponent implements OnInit {
       year: 'N/A',
       desc: 'New car',
       img: 'https://www.bmw.vn/content/dam/bmw/common/all-models/3-series/sedan/2018/navigation/bmw-3-series-modellfinder.png',
+      engs: [
+        { type: 'VTEC', fuel: 'Gas' },
+        { type: 'VTEC', fuel: 'Diesel' },
+      ],
+      designs: [
+        { interior: 'Standard' },
+        { interior: 'Premium' },
+        { interior: 'Sport' },
+      ],
     },
     {
       id: 4,
@@ -43,6 +70,15 @@ export class VehicleDetailComponent implements OnInit {
       year: 'N/A',
       desc: 'New car',
       img: 'https://i.xeoto.com.vn/auto/mercedes/c180/mercedes-c180-phien-ban-16-turbo.png',
+      engs: [
+        { type: 'VTEC', fuel: 'Gas' },
+        { type: 'VTEC', fuel: 'Diesel' },
+      ],
+      designs: [
+        { interior: 'Standard' },
+        { interior: 'Premium' },
+        { interior: 'Sport' },
+      ],
     },
     {
       id: 5,
@@ -51,6 +87,15 @@ export class VehicleDetailComponent implements OnInit {
       year: 2019,
       desc: 'New car',
       img: 'https://www.ford.com.vn/content/dam/Ford/website-assets/ap/vn/nameplate/raptor-2019/thumbnails/raptor.jpg',
+      engs: [
+        { type: 'VTEC', fuel: 'Gas' },
+        { type: 'VTEC', fuel: 'Diesel' },
+      ],
+      designs: [
+        { interior: 'Standard' },
+        { interior: 'Premium' },
+        { interior: 'Sport' },
+      ],
     },
     {
       id: 6,
@@ -59,6 +104,15 @@ export class VehicleDetailComponent implements OnInit {
       year: 1998,
       desc: 'New car',
       img: 'http://data.3dtuning.com/tun/6SOdFYFSRH.jpg',
+      engs: [
+        { type: 'VTEC', fuel: 'Gas' },
+        { type: 'VTEC', fuel: 'Diesel' },
+      ],
+      designs: [
+        { interior: 'Standard' },
+        { interior: 'Premium' },
+        { interior: 'Sport' },
+      ],
     },
     {
       id: 7,
@@ -67,6 +121,15 @@ export class VehicleDetailComponent implements OnInit {
       year: 'N/A',
       desc: 'New car',
       img: 'https://www.subaru.asia/assets/content/vehicles/media/thumbnails/vn_my18_wrxsti_25_6mt.png',
+      engs: [
+        { type: 'VTEC', fuel: 'Gas' },
+        { type: 'VTEC', fuel: 'Diesel' },
+      ],
+      designs: [
+        { interior: 'Standard' },
+        { interior: 'Premium' },
+        { interior: 'Sport' },
+      ],
     },
     {
       id: 8,
@@ -75,6 +138,15 @@ export class VehicleDetailComponent implements OnInit {
       year: 'N/A',
       desc: 'New car',
       img: 'https://www.mitsubishi-motors.com.vn/w/wp-content/uploads/2021/11/SU-SAM1.png',
+      engs: [
+        { type: 'VTEC', fuel: 'Gas' },
+        { type: 'VTEC', fuel: 'Diesel' },
+      ],
+      designs: [
+        { interior: 'Standard' },
+        { interior: 'Premium' },
+        { interior: 'Sport' },
+      ],
     },
     {
       id: 9,
@@ -83,6 +155,15 @@ export class VehicleDetailComponent implements OnInit {
       year: 'N/A',
       desc: 'New car',
       img: 'https://img.tinbanxe.vn/webp/images/Bugatti/Bugatti%20Chiron/bugatti-chiron-gallery-01-removebg-preview.png',
+      engs: [
+        { type: 'VTEC', fuel: 'Gas' },
+        { type: 'VTEC', fuel: 'Diesel' },
+      ],
+      designs: [
+        { interior: 'Standard' },
+        { interior: 'Premium' },
+        { interior: 'Sport' },
+      ],
     },
     {
       id: 10,
@@ -91,6 +172,15 @@ export class VehicleDetailComponent implements OnInit {
       year: 2020,
       desc: 'New car',
       img: 'https://i.xeoto.com.vn/auto/lamborghini/huracan/lamborghini-huracan-2020-61144.png',
+      engs: [
+        { type: 'VTEC', fuel: 'Gas' },
+        { type: 'VTEC', fuel: 'Diesel' },
+      ],
+      designs: [
+        { interior: 'Standard' },
+        { interior: 'Premium' },
+        { interior: 'Sport' },
+      ],
     },
   ];
 
@@ -104,12 +194,19 @@ export class VehicleDetailComponent implements OnInit {
   }
 
   engChanged(ev: any) {
-    const eng = ev.detail;
+    const eng = ev.detail.value;
     console.log(eng);
   }
 
   designChanged(ev: any) {
-    const design = ev.detail;
+    const design = ev.detail.value;
     console.log(design);
+  }
+
+  bookNow() {
+    const vehicleName = this.data[0].brand.concat(' ', this.data[0].name);
+    const eng = this.data;
+    const design = this.data;
+    console.log('booked', vehicleName);
   }
 }

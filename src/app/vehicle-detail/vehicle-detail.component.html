@@ -18,20 +18,14 @@
       <ion-segment
         mode="ios"
         (ionChange)="engChanged($event)"
-        value="vtec-gas"
         class="eng-segment"
       >
-        <ion-segment-button value="vtec-gas">
-          <ion-label>VTEC</ion-label>
-          <ion-note>Gas</ion-note>
-        </ion-segment-button>
-        <ion-segment-button value="vtec-diesel">
-          <ion-label>VTEC</ion-label>
-          <ion-note>Diesel</ion-note>
-        </ion-segment-button>
-        <ion-segment-button value="vtec-hybrid">
-          <ion-label>VTEC</ion-label>
-          <ion-note>Hybrid</ion-note>
+        <ion-segment-button
+          *ngFor="let eng of data[0].engs"
+          value="{{ eng.type }} {{ eng.fuel }}"
+        >
+          <ion-label>{{ eng.type }}</ion-label>
+          <ion-note>{{ eng.fuel }}</ion-note>
         </ion-segment-button>
       </ion-segment>
     </ion-toolbar>
@@ -45,25 +39,21 @@
       <ion-segment
         mode="ios"
         (ionChange)="designChanged($event)"
-        value="standard"
         class="design-segment"
       >
-        <ion-segment-button value="standard">
-          <ion-label>Standard</ion-label>
-        </ion-segment-button>
-        <ion-segment-button value="premium">
-          <ion-label>Premium</ion-label>
-        </ion-segment-button>
-        <ion-segment-button value="sport">
-          <ion-label>Sport</ion-label>
+        <ion-segment-button
+          *ngFor="let design of data[0].designs"
+          value="{{ design.interior }}"
+        >
+          <ion-label>{{ design.interior }}</ion-label>
         </ion-segment-button>
       </ion-segment>
     </ion-toolbar>
   </div>
 
-  <ion-row class="order-btn">
-    <ion-button strong="true" type="submit" color="success"
-      >Order now <ion-icon name="arrow-forward-circle"></ion-icon
+  <ion-row class="book-btn">
+    <ion-button strong="true" type="submit" color="success" (click)="bookNow()"
+      >Book now <ion-icon name="arrow-forward-circle"></ion-icon
     ></ion-button>
   </ion-row>
 

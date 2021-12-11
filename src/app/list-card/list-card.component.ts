@@ -1,7 +1,7 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
-
 import { IonInfiniteScroll } from '@ionic/angular';
 import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-list-card',
   templateUrl: './list-card.component.html',
