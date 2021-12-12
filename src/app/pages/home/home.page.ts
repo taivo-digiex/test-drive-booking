@@ -13,9 +13,7 @@ export class HomePage {
   constructor(private platform: Platform, private router: Router) {
     this.platform.backButton.subscribeWithPriority(-1, () => {
       const url = this.router.url;
-      if (url !== '/tabs/home') {
-        this.router.navigate(['/']);
-      } else if (url === '/tabs/home') {
+      if (url === '/tabs/home') {
         navigator['app'].exitApp();
       }
     });
