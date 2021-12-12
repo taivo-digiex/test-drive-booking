@@ -192,7 +192,6 @@ export class VehicleDetailComponent implements OnInit {
       this.router.getCurrentNavigation().finalUrl.root.children.primary
         .segments[1].path;
     this.data = this.data.filter((x) => x.id == parseInt(vehicleId));
-    // const detail = this.data.find((x) => x.id === parseInt(vehicleId))
     console.log(this.data);
   }
 
@@ -213,7 +212,7 @@ export class VehicleDetailComponent implements OnInit {
     console.log('booked', vehicleName);
   }
 
-  backButton() {
+  back() {
     this.location.back();
   }
 }
