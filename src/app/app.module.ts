@@ -6,7 +6,7 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { VehicleDetailComponent } from './vehicle-detail/vehicle-detail.component';
+import { VehicleDetailComponent } from '../app/components/vehicle-detail/vehicle-detail.component';
 
 @NgModule({
   declarations: [AppComponent, VehicleDetailComponent],

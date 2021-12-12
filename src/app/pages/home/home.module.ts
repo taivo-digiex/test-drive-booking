@@ -3,10 +3,11 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HomePage } from './home.page';
-import { ExploreContainerComponentModule } from '../explore-container/explore-container.module';
+import { ExploreContainerComponentModule } from '../../components/explore-container/explore-container.module';
 
 import { HomePageRoutingModule } from './home-routing.module';
-import { ListCardComponentModule } from '../list-card/list-card.module';
+import { ListCardComponentModule } from './components/list-card/list-card.module';
+import { SearchBarModule } from './components/search-bar/search-bar.module';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { ListCardComponentModule } from '../list-card/list-card.module';
     FormsModule,
     ExploreContainerComponentModule,
     HomePageRoutingModule,
-    ListCardComponentModule
+    ListCardComponentModule,
+    SearchBarModule
   ],
   declarations: [HomePage]
 })
