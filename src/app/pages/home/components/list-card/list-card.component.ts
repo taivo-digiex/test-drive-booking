@@ -10,54 +10,46 @@ import { Router } from '@angular/router';
 export class ListCardComponent implements OnInit {
   @ViewChild(IonInfiniteScroll) infiniteScroll: IonInfiniteScroll;
 
-  constructor(private route: Router) {}
+  constructor(private route: Router) { }
 
-  ngOnInit() {
-    this.showVehicle();
-  }
+  ngOnInit() { }
 
   public detailicon: string = 'chevron-forward';
 
-  public data = [];
+  public data: Array<any> = [{
+    id: 1,
+    brand: 'Honda',
+    name: 'NSX',
+    year: 'N/A',
+    desc: 'New car',
+    img: 'https://carsguide-res.cloudinary.com/image/upload/f_auto,fl_lossy,q_auto,t_cg_hero_low/v1/editorial/vhs/Honda-NSX.png',
+  },
+  {
+    id: 2,
+    brand: 'Suzuki',
+    name: 'XL7',
+    year: 'N/A',
+    desc: 'New car',
+    img: 'https://saigonngoisao.com.vn/vnt_upload/product/color/magma_grey_zeta.png',
+  },
+  {
+    id: 3,
+    brand: 'BWM',
+    name: '3 Series',
+    year: 'N/A',
+    desc: 'New car',
+    img: 'https://www.bmw.vn/content/dam/bmw/common/all-models/3-series/sedan/2018/navigation/bmw-3-series-modellfinder.png',
+  },
+  {
+    id: 4,
+    brand: 'Mercedes-Benz',
+    name: 'c180',
+    year: 'N/A',
+    desc: 'New car',
+    img: 'https://i.xeoto.com.vn/auto/mercedes/c180/mercedes-c180-phien-ban-16-turbo.png',
+  },];
   private moreVehicle = [];
-
-  showVehicle() {
-    this.data = [
-      {
-        id: 1,
-        brand: 'Honda',
-        name: 'NSX',
-        year: 'N/A',
-        desc: 'New car',
-        img: 'https://carsguide-res.cloudinary.com/image/upload/f_auto,fl_lossy,q_auto,t_cg_hero_low/v1/editorial/vhs/Honda-NSX.png',
-      },
-      {
-        id: 2,
-        brand: 'Suzuki',
-        name: 'XL7',
-        year: 'N/A',
-        desc: 'New car',
-        img: 'https://saigonngoisao.com.vn/vnt_upload/product/color/magma_grey_zeta.png',
-      },
-      {
-        id: 3,
-        brand: 'BWM',
-        name: '3 Series',
-        year: 'N/A',
-        desc: 'New car',
-        img: 'https://www.bmw.vn/content/dam/bmw/common/all-models/3-series/sedan/2018/navigation/bmw-3-series-modellfinder.png',
-      },
-      {
-        id: 4,
-        brand: 'Mercedes-Benz',
-        name: 'c180',
-        year: 'N/A',
-        desc: 'New car',
-        img: 'https://i.xeoto.com.vn/auto/mercedes/c180/mercedes-c180-phien-ban-16-turbo.png',
-      },
-    ];
-    console.log(this.data);
-  }
+  public dataFiltered: Array<any> = this.data;
 
   showMoreVehicle() {
     this.moreVehicle = [
@@ -120,56 +112,25 @@ export class ListCardComponent implements OnInit {
     setTimeout(() => {
       event.target.complete();
       this.showMoreVehicle();
-      if (this.data.length == this.data.length) {
+      if (this.data.length == this.data.length || this.data.length == this.dataFiltered.length) {
         event.target.disabled = true;
       }
     }, 500);
   }
 
   getVehicle(carId: number) {
-    console.log('vehicle-detail/', carId);
     this.route.navigate(['vehicle-detail/', carId]);
   }
 
   handleInput(event) {
-    // const query = event.target.value.toLowerCase();
-    // this.data.forEach((e) => {
-    //   const lowerBrand = e.brand.toLowerCase();
-    //   const lowerName = e.name.toLowerCase();
-    //   if (
-    //     lowerBrand.includes(query) ||
-    //     lowerName.includes(query) ||
-    //     lowerBrand.concat(' ', lowerName).includes(query)
-    //   ) {
-    //     const res = e.brand.concat(' ', e.name);
-    //     document.getElementById('demo').innerHTML = res;
-    //     console.log(res);
-    //   }
-    // });
+    let query = event.target.value.toLowerCase();
 
-    const query = event.target.value.toLowerCase();
-    if (query == null) {
-      return this.data;
+    if (query && query.trim() !== '') {
+      // this.showMoreVehicle();
+      this.dataFiltered = this.data.filter(term => term.brand.toLowerCase().indexOf(query) > -1 || term.name.toLowerCase().indexOf(query) > -1 || term.brand.concat(' ', term.name).toLowerCase().indexOf(query) > -1)
     } else {
-      this.data = this.data.filter(
-        (e) =>
-          e.name.toLowerCase().includes(query) ||
-          e.brand.toLowerCase().includes(query)
-      );
+      this.dataFiltered = this.data;
     }
-    console.log(this.data);
-    // this.data.find((e) => {
-    //   const lowerBrand = e.brand.toLowerCase();
-    //   const lowerName = e.name.toLowerCase();
-    //   if (
-    //     lowerBrand.includes(query) ||
-    //     lowerName.includes(query) ||
-    //     lowerBrand.concat(' ', lowerName).includes(query)
-    //   ) {
-    //     const res = e.brand.concat(' ', e.name);
-    //     document.getElementById('demo').innerHTML = res;
-    //     console.log(res);
-    //   }
-    // });
+    console.log(this.dataFiltered);
   }
 }
