@@ -6,8 +6,8 @@ import { HomePage } from './home.page';
 import { ExploreContainerComponentModule } from '../../components/explore-container/explore-container.module';
 
 import { HomePageRoutingModule } from './home-routing.module';
-import { ListCardComponentModule } from '../../components/list-card/list-card.module';
-import { SearchBarModule } from 'src/app/components/search-bar/search-bar.module';
+import { ListCardComponentModule } from './components/list-card/list-card.module';
+import { SearchBarModule } from './components/search-bar/search-bar.module';
 
 @NgModule({
   imports: [
