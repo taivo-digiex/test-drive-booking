@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { Platform } from '@ionic/angular';
-import { AppVersion } from '@ionic-native/app-version/ngx';
+import { AppVersion } from '@awesome-cordova-plugins/app-version/ngx';
 
 @Component({
   selector: 'app-tab3',
@@ -8,38 +7,20 @@ import { AppVersion } from '@ionic-native/app-version/ngx';
   styleUrls: ['tab3.page.scss']
 })
 export class Tab3Page {
-  ionAppName: string;
-  ionPackageName: string;
-  ionVersionNumber: string;
-  ionVersionCode: string | number;
-  constructor(
-    platform: Platform,
-    private appVersion: AppVersion
-  ) {
-    platform.ready().then(() => {
-      this.appVersion.getAppName().then(res => {
-        this.ionAppName = res;
-      }).catch(error => {
-        alert(error);
-      });
+  AppName: string;
+  VersionNumber: string;
 
-      this.appVersion.getPackageName().then(res => {
-        this.ionPackageName = res;
-      }).catch(error => {
-        alert(error);
-      });
-
-      this.appVersion.getVersionNumber().then(res => {
-        this.ionVersionNumber = res;
-      }).catch(error => {
-        alert(error);
-      });
-
-      this.appVersion.getVersionCode().then(res => {
-        this.ionVersionCode = res;
-      }).catch(error => {
-        alert(error);
-      });
+  constructor(private appVersion: AppVersion) {
+    this.appVersion.getAppName().then(value => {
+      this.AppName = value;
+    }).catch(err => {
+      console.log(err);
+    });
+    this.appVersion.getVersionNumber().then(value => {
+      this.VersionNumber = value;
+    }).catch(err => {
+      console.log(err);
     });
   }
+
 }
