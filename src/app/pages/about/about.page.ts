@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 import { AppVersion } from '@awesome-cordova-plugins/app-version/ngx';
 
 @Component({
-  selector: 'app-tab3',
-  templateUrl: 'tab3.page.html',
-  styleUrls: ['tab3.page.scss']
+  selector: 'app-about',
+  templateUrl: 'about.page.html',
+  styleUrls: ['about.page.scss']
 })
-export class Tab3Page {
+export class AboutPage {
   AppName: string;
   VersionNumber: string;
 
