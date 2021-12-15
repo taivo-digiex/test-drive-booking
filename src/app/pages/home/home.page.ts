@@ -10,7 +10,7 @@ import { IonInfiniteScroll } from '@ionic/angular';
 })
 export class HomePage {
   @ViewChild(IonInfiniteScroll) infiniteScroll: IonInfiniteScroll;
-  
+
   constructor(private route: Router) { }
 
   ngOnInit() { }
@@ -46,76 +46,125 @@ export class HomePage {
     year: 'N/A',
     desc: 'New car',
     img: 'https://i.xeoto.com.vn/auto/mercedes/c180/mercedes-c180-phien-ban-16-turbo.png',
-  },];
-  private moreVehicle = [];
+  },
+  {
+    id: 5,
+    brand: 'Ford',
+    name: 'Raptor',
+    year: 2019,
+    desc: 'New car',
+    img: 'https://www.ford.com.vn/content/dam/Ford/website-assets/ap/vn/nameplate/raptor-2019/thumbnails/raptor.jpg',
+  },
+  {
+    id: 6,
+    brand: 'Toyota',
+    name: 'Supra',
+    year: 1998,
+    desc: 'New car',
+    img: 'http://data.3dtuning.com/tun/6SOdFYFSRH.jpg',
+  },
+  {
+    id: 7,
+    brand: 'Subaru',
+    name: 'WRX STI',
+    year: 'N/A',
+    desc: 'New car',
+    img: 'https://www.subaru.asia/assets/content/vehicles/media/thumbnails/vn_my18_wrxsti_25_6mt.png',
+  },
+  {
+    id: 8,
+    brand: 'Misubishi',
+    name: 'Triton Athlete',
+    year: 'N/A',
+    desc: 'New car',
+    img: 'https://www.mitsubishi-motors.com.vn/w/wp-content/uploads/2021/11/SU-SAM1.png',
+  },
+  {
+    id: 9,
+    brand: 'Bugatti',
+    name: 'Chiron',
+    year: 'N/A',
+    desc: 'New car',
+    img: 'https://img.tinbanxe.vn/webp/images/Bugatti/Bugatti%20Chiron/bugatti-chiron-gallery-01-removebg-preview.png',
+  },
+  {
+    id: 10,
+    brand: 'Lamborghini',
+    name: 'Huracan',
+    year: 2020,
+    desc: 'New car',
+    img: 'https://i.xeoto.com.vn/auto/lamborghini/huracan/lamborghini-huracan-2020-61144.png',
+  },
+  ];
+  // private moreVehicle = [];
   public dataFiltered: Array<any> = this.data;
 
-  showMoreVehicle() {
-    this.moreVehicle = [
-      {
-        id: 5,
-        brand: 'Ford',
-        name: 'Raptor',
-        year: 2019,
-        desc: 'New car',
-        img: 'https://www.ford.com.vn/content/dam/Ford/website-assets/ap/vn/nameplate/raptor-2019/thumbnails/raptor.jpg',
-      },
-      {
-        id: 6,
-        brand: 'Toyota',
-        name: 'Supra',
-        year: 1998,
-        desc: 'New car',
-        img: 'http://data.3dtuning.com/tun/6SOdFYFSRH.jpg',
-      },
-      {
-        id: 7,
-        brand: 'Subaru',
-        name: 'WRX STI',
-        year: 'N/A',
-        desc: 'New car',
-        img: 'https://www.subaru.asia/assets/content/vehicles/media/thumbnails/vn_my18_wrxsti_25_6mt.png',
-      },
-      {
-        id: 8,
-        brand: 'Misubishi',
-        name: 'Triton Athlete',
-        year: 'N/A',
-        desc: 'New car',
-        img: 'https://www.mitsubishi-motors.com.vn/w/wp-content/uploads/2021/11/SU-SAM1.png',
-      },
-      {
-        id: 9,
-        brand: 'Bugatti',
-        name: 'Chiron',
-        year: 'N/A',
-        desc: 'New car',
-        img: 'https://img.tinbanxe.vn/webp/images/Bugatti/Bugatti%20Chiron/bugatti-chiron-gallery-01-removebg-preview.png',
-      },
-      {
-        id: 10,
-        brand: 'Lamborghini',
-        name: 'Huracan',
-        year: 2020,
-        desc: 'New car',
-        img: 'https://i.xeoto.com.vn/auto/lamborghini/huracan/lamborghini-huracan-2020-61144.png',
-      },
-    ];
-    this.moreVehicle.forEach((e) => {
-      this.data.push(e);
-    });
-    console.log(this.data);
-  }
+  // showMoreVehicle() {
+  //   this.moreVehicle = [
+  //     {
+  //       id: 5,
+  //       brand: 'Ford',
+  //       name: 'Raptor',
+  //       year: 2019,
+  //       desc: 'New car',
+  //       img: 'https://www.ford.com.vn/content/dam/Ford/website-assets/ap/vn/nameplate/raptor-2019/thumbnails/raptor.jpg',
+  //     },
+  //     {
+  //       id: 6,
+  //       brand: 'Toyota',
+  //       name: 'Supra',
+  //       year: 1998,
+  //       desc: 'New car',
+  //       img: 'http://data.3dtuning.com/tun/6SOdFYFSRH.jpg',
+  //     },
+  //     {
+  //       id: 7,
+  //       brand: 'Subaru',
+  //       name: 'WRX STI',
+  //       year: 'N/A',
+  //       desc: 'New car',
+  //       img: 'https://www.subaru.asia/assets/content/vehicles/media/thumbnails/vn_my18_wrxsti_25_6mt.png',
+  //     },
+  //     {
+  //       id: 8,
+  //       brand: 'Misubishi',
+  //       name: 'Triton Athlete',
+  //       year: 'N/A',
+  //       desc: 'New car',
+  //       img: 'https://www.mitsubishi-motors.com.vn/w/wp-content/uploads/2021/11/SU-SAM1.png',
+  //     },
+  //     {
+  //       id: 9,
+  //       brand: 'Bugatti',
+  //       name: 'Chiron',
+  //       year: 'N/A',
+  //       desc: 'New car',
+  //       img: 'https://img.tinbanxe.vn/webp/images/Bugatti/Bugatti%20Chiron/bugatti-chiron-gallery-01-removebg-preview.png',
+  //     },
+  //     {
+  //       id: 10,
+  //       brand: 'Lamborghini',
+  //       name: 'Huracan',
+  //       year: 2020,
+  //       desc: 'New car',
+  //       img: 'https://i.xeoto.com.vn/auto/lamborghini/huracan/lamborghini-huracan-2020-61144.png',
+  //     },
+  //   ];
+  //   this.moreVehicle.forEach((e) => {
+  //     this.data.push(e);
+  //   });
+  //   console.log(this.data);
+  // }
 
-  loadData(event) {
-    setTimeout(() => {
-      event.target.complete();
-      this.showMoreVehicle();
-      if (this.data.length == this.data.length || this.data.length == this.dataFiltered.length) {
-        event.target.disabled = true;
-      }
-    }, 500);
-  }
+  // loadData(event) {
+  //   setTimeout(() => {
+  //     event.target.complete();
+  //     this.showMoreVehicle();
+  //     if (this.dataFiltered.length == this.dataFiltered.length) {
+  //       event.target.disabled = true;
+  //     }
+  //   }, 500);
+  // }
 
   getVehicle(carId: number) {
     this.route.navigate(['vehicle-detail/', carId]);
