@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { IonRouterOutlet } from '@ionic/angular';
+import { IonRouterOutlet, ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-modal',
@@ -10,7 +10,7 @@ import { IonRouterOutlet } from '@ionic/angular';
 
 export class ModalComponent implements OnInit {
 
-  constructor(public routerOutlet: IonRouterOutlet, public fb: FormBuilder) { }
+  constructor(public routerOutlet: IonRouterOutlet, public fb: FormBuilder, private modalCtrl: ModalController) { }
 
   public formGroup: FormGroup;
 
@@ -20,6 +20,7 @@ export class ModalComponent implements OnInit {
 
   dismissModal() {
 
+    this.modalCtrl.dismiss();
   }
 
   async initForm() {

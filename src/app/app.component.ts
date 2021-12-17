@@ -11,6 +11,10 @@ import { Location } from '@angular/common';
 export class AppComponent {
   @ViewChild(IonRouterOutlet, { static: true }) routerOutlet: IonRouterOutlet;
   constructor(private platform: Platform, private router: Router, private location: Location) {
+    this.hardwareBackBtn();
+  }
+
+  hardwareBackBtn() {
     this.platform.backButton.subscribeWithPriority(10, () => {
       const url = this.router.url;
       if (!this.routerOutlet.canGoBack() && url === '/tabs/home') {

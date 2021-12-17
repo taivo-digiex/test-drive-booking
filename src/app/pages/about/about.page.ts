@@ -11,6 +11,10 @@ export class AboutPage {
   VersionNumber: string;
 
   constructor(private appVersion: AppVersion) {
+    this.getAppInfo();
+  }
+
+  getAppInfo() {
     this.appVersion.getAppName().then(value => {
       this.AppName = value;
     }).catch(err => {
@@ -21,6 +25,10 @@ export class AboutPage {
     }).catch(err => {
       console.log(err);
     });
+  }
+
+  toggleTheme(event) {
+
   }
 
 }
