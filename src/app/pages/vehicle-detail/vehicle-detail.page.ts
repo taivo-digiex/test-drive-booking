@@ -193,17 +193,14 @@ export class VehicleDetailPage implements OnInit {
       this.router.getCurrentNavigation().finalUrl.root.children.primary
         .segments[1].path;
     this.data = this.data.filter((x) => x.id == parseInt(vehicleId));
-    console.log(this.data);
   }
 
   engChanged(ev: any) {
     const eng = ev.detail.value;
-    console.log(eng);
   }
 
   designChanged(ev: any) {
     const design = ev.detail.value;
-    console.log(design);
   }
 
   back() {
