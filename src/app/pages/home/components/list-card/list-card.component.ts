@@ -9,12 +9,10 @@ import { Router } from '@angular/router';
 })
 export class ListCardComponent implements OnInit {
   @ViewChild(IonInfiniteScroll) infiniteScroll: IonInfiniteScroll;
-
+  @Input() query: string = '';
   constructor(private route: Router) { }
 
   ngOnInit() { }
-
-  public detailicon: string = 'chevron-forward';
 
   public data: Array<any> = [{
     id: 1,
@@ -122,11 +120,10 @@ export class ListCardComponent implements OnInit {
     this.route.navigate(['vehicle-detail/', carId]);
   }
 
-  handleInput(event) {
-    let query = event.target.value.toLowerCase();
+  handleInput(query: string) {
+    console.log('search from list', query);
 
     if (query && query.trim() !== '') {
-      // this.showMoreVehicle();
       this.dataFiltered = this.data.filter(term => term.brand.toLowerCase().indexOf(query) > -1 || term.name.toLowerCase().indexOf(query) > -1 || term.brand.concat(' ', term.name).toLowerCase().indexOf(query) > -1)
     } else {
       this.dataFiltered = this.data;

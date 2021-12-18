@@ -4,15 +4,16 @@ import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-vehicle-detail',
-  templateUrl: './vehicle-detail.component.html',
-  styleUrls: ['./vehicle-detail.component.scss'],
+  templateUrl: './vehicle-detail.page.html',
+  styleUrls: ['./vehicle-detail.page.scss'],
 })
-export class VehicleDetailComponent implements OnInit {
-  constructor(private router: Router, private location: Location) {}
+export class VehicleDetailPage implements OnInit {
+  constructor(private router: Router, private location: Location) { }
 
   ngOnInit() {
     this.getVehicleDetail();
   }
+
   public data = [
     {
       id: 1,
@@ -203,13 +204,6 @@ export class VehicleDetailComponent implements OnInit {
   designChanged(ev: any) {
     const design = ev.detail.value;
     console.log(design);
-  }
-
-  bookNow() {
-    const vehicleName = this.data[0].brand.concat(' ', this.data[0].name);
-    const eng = this.data;
-    const design = this.data;
-    console.log('booked', vehicleName);
   }
 
   back() {

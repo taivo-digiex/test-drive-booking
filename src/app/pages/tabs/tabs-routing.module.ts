@@ -12,15 +12,15 @@ const routes: Routes = [
         loadChildren: () =>
           import('../home/home.module').then((m) => m.HomePageModule),
       },
-      // {
-      //   path: 'tab2',
-      //   loadChildren: () =>
-      //     import('../tab2/tab2.module').then((m) => m.Tab2PageModule),
-      // },
       {
-        path: 'tab3',
+        path: 'tab2',
         loadChildren: () =>
-          import('../tab3/tab3.module').then((m) => m.Tab3PageModule),
+          import('../tab2/tab2.module').then((m) => m.Tab2PageModule),
+      },
+      {
+        path: 'about',
+        loadChildren: () =>
+          import('../about/about.module').then((m) => m.AboutPageModule),
       },
       {
         path: '',
