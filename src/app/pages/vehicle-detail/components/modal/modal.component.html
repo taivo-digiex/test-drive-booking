@@ -1,0 +1,39 @@
+<ion-modal trigger="trigger-button">
+  <ng-template>
+    <ion-header translucent>
+      <ion-toolbar>
+        <ion-title>Booking</ion-title>
+        <ion-buttons slot="end">
+          <ion-button (click)="dismissModal()">Close</ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <form [formGroup]="formGroup" (ngSubmit)="bookingForm()" novalidate>
+        <ion-item>
+          <ion-label position="floating">Name</ion-label>
+          <ion-input formControlName="name"></ion-input>
+          <!-- <span class="error ion-padding" *ngIf="isSubmitted && errorControl.name.errors?.required">
+            Name is required.
+          </span> -->
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Phone number</ion-label>
+          <ion-input type="tel" formControlName="phone"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">E-mail</ion-label>
+          <ion-input formControlName="email" type="email">
+          </ion-input>
+        </ion-item>
+        
+        <ion-input formControlName="car" hidden></ion-input>
+        <ion-input formControlName="engine" hidden></ion-input>
+
+        <ion-button size="block" color="primary" type="submit">Booking</ion-button>
+      </form>
+    </ion-content>
+  </ng-template>
+</ion-modal>

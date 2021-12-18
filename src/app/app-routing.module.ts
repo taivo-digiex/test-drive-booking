@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { VehicleDetailComponent } from '../app/components/vehicle-detail/vehicle-detail.component';
 
 const routes: Routes = [
   {
@@ -10,7 +9,7 @@ const routes: Routes = [
   },
   {
     path: 'vehicle-detail/:carId',
-    component: VehicleDetailComponent,
+    loadChildren: () => import('./pages/vehicle-detail/vehicle-detail.module').then((m) => m.VehicleDetailPageModule),
   },
   {
     path: '**',
@@ -19,6 +18,7 @@ const routes: Routes = [
         (m) => m.PageNotFoundPageModule
       ),
   },
+
 ];
 @NgModule({
   imports: [

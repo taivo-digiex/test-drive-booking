@@ -14,44 +14,30 @@
 
   <h4><strong>Engine</strong></h4>
   <ion-segment mode="ios" (ionChange)="engChanged($event)" class="eng-segment">
-    <ion-segment-button
-      *ngFor="let eng of data[0].engs"
-      value="{{ eng.type }} {{ eng.fuel }}"
-    >
+    <ion-segment-button *ngFor="let eng of data[0].engs" value="{{ eng.type }} {{ eng.fuel }}">
       <ion-label>{{ eng.type }}</ion-label>
       <ion-label>{{ eng.fuel }}</ion-label>
     </ion-segment-button>
   </ion-segment>
 
   <h4><strong>Design</strong></h4>
-  <ion-segment
-    mode="ios"
-    (ionChange)="designChanged($event)"
-    class="design-segment"
-  >
-    <ion-segment-button
-      *ngFor="let design of data[0].designs"
-      value="{{ design.interior }}"
-    >
+  <ion-segment mode="ios" (ionChange)="designChanged($event)" class="design-segment">
+    <ion-segment-button *ngFor="let design of data[0].designs" value="{{ design.interior }}">
       <ion-label>{{ design.interior }}</ion-label>
     </ion-segment-button>
   </ion-segment>
 
   <ion-row class="book-btn">
-    <ion-button
-      strong="true"
-      type="submit"
-      color="success"
-      (click)="bookNow()"
-      href="booking"
-      >Book now <ion-icon name="arrow-forward-circle"></ion-icon
-    ></ion-button>
+    <ion-button strong="true" type="submit" color="primary" id="trigger-button">Book now <ion-icon
+        name="arrow-forward-circle"></ion-icon>
+    </ion-button>
   </ion-row>
 
-  <ion-card
-    ><ion-card-header>
+  <ion-card>
+    <ion-card-header>
       <ion-card-title>Description</ion-card-title>
     </ion-card-header>
     <ion-card-content>{{ data[0].desc }}</ion-card-content>
   </ion-card>
+  <app-modal></app-modal>
 </ion-content>
