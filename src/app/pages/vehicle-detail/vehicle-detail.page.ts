@@ -105,9 +105,9 @@ export class VehicleDetailPage implements OnInit {
       id: 6,
       brand: 'Toyota',
       name: 'Supra',
-      year: 1998,
+      year: 2020,
       desc: 'New car',
-      img: 'http://data.3dtuning.com/tun/6SOdFYFSRH.jpg',
+      img: 'https://i.xeoto.com.vn/auto/toyota/supra/toyota-supra-phien-ban-30-gt.png',
       engs: [
         { type: 'VTEC', fuel: 'Gas' },
         { type: 'VTEC', fuel: 'Diesel' },
