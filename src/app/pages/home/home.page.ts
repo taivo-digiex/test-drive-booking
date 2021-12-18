@@ -176,6 +176,5 @@ export class HomePage {
     } else {
       this.dataFiltered = this.data;
     }
-    console.log(this.dataFiltered);
   }
 }
