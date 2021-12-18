@@ -11,6 +11,6 @@ export class TabsPage {
   public pageTab = [
     { title: 'Weather', url: 'tab2', icon: 'cloud' },
     { title: 'Home', url: 'home', icon: 'home' },
-    { title: 'About', url: 'about', icon: 'alert-circle' },
+    { title: 'Setting', url: 'setting', icon: 'settings' },
   ];
 }

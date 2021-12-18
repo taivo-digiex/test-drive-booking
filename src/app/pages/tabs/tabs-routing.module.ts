@@ -18,9 +18,8 @@ const routes: Routes = [
           import('../tab2/tab2.module').then((m) => m.Tab2PageModule),
       },
       {
-        path: 'about',
-        loadChildren: () =>
-          import('../about/about.module').then((m) => m.AboutPageModule),
+        path: 'setting',
+        loadChildren: () => import('../setting/setting.module').then( m => m.SettingPageModule)
       },
       {
         path: '',

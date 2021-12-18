@@ -1,37 +1,19 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button (click)="back()" defaultHref="tabs/setting"></ion-back-button>
+    </ion-buttons>
     <ion-title>About</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">About</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
-  <ion-list>
-    <ion-item>
-      <ion-label>Toggle dark mode</ion-label>
-      <ion-toggle slot="end" [(ngModel)]="darkValue" [checked]="darkValue" (ionChange)="toggleTheme($event)">
-      </ion-toggle>
-    </ion-item>
+  <ion-card>
+    <ion-card-content>
+      <strong>App name: </strong>{{ AppName }} <br />
+      <strong>Version: </strong>{{ VersionNumber }}
+    </ion-card-content>
+  </ion-card>
 
-    <ion-item>
-      <ion-label>App name</ion-label>{{ AppName }}
-    </ion-item>
-
-    <ion-item>
-      <ion-label>Version</ion-label>{{ VersionNumber }}
-    </ion-item>
-    
-    <ion-item>
-      <ion-label>Comming soon...</ion-label>
-    </ion-item>
-  </ion-list>
-
-  <div id="container">
-    <strong>Comming soon...</strong>
-  </div>
 </ion-content>
