@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { IonRouterOutlet, ModalController } from '@ionic/angular';
+import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-modal',
@@ -10,7 +10,7 @@ import { IonRouterOutlet, ModalController } from '@ionic/angular';
 
 export class ModalComponent implements OnInit {
 
-  constructor(public routerOutlet: IonRouterOutlet, public fb: FormBuilder, private modalCtrl: ModalController) { }
+  constructor(public fb: FormBuilder, private modalCtrl: ModalController) { }
 
   public formGroup: FormGroup;
 
@@ -19,7 +19,6 @@ export class ModalComponent implements OnInit {
   }
 
   dismissModal() {
-
     this.modalCtrl.dismiss();
   }
 
@@ -36,14 +35,6 @@ export class ModalComponent implements OnInit {
       email: [
         '',
         Validators.compose([Validators.email])
-      ],
-      date: [
-        new Date().toDateString(),
-        Validators.compose([Validators.required])
-      ],
-      time: [
-        new Date().toTimeString().substring(0, 5),
-        Validators.compose([Validators.required])
       ],
       car: [
         'NSX'

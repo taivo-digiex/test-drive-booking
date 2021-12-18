@@ -1,4 +1,4 @@
-<ion-modal trigger="trigger-button" [swipeToClose]="true" [presentingElement]="routerOutlet.nativeEl">
+<ion-modal trigger="trigger-button">
   <ng-template>
     <ion-header translucent>
       <ion-toolbar>
@@ -28,12 +28,7 @@
           <ion-input formControlName="email" type="email">
           </ion-input>
         </ion-item>
-
-        <ion-datetime size="cover" locale="en-GB" (ionChange)="getDate($event)">
-        </ion-datetime>
         
-        <ion-input formControlName="date"></ion-input>
-        <ion-input formControlName="time"></ion-input>
         <ion-input formControlName="car" hidden></ion-input>
         <ion-input formControlName="engine" hidden></ion-input>
 

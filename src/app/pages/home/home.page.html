@@ -2,7 +2,9 @@
   <ion-toolbar>
     <ion-title>Home</ion-title>
   </ion-toolbar>
-  <app-search-bar (query)="handleInput($event)"></app-search-bar>
+  <ion-toolbar>
+    <app-search-bar (query)="handleInput($event)"></app-search-bar>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
