@@ -3,13 +3,15 @@ import { Router } from '@angular/router';
 import { Platform, IonRouterOutlet } from '@ionic/angular';
 import { Location } from '@angular/common';
 import { Storage } from '@ionic/storage-angular';
-import { ThemeService } from './services/theme.service';
+import { ThemeService } from './services/theme/theme.service';
+import { LanguageService } from './services/language/language.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss'],
 })
+
 export class AppComponent {
 
   @ViewChild(IonRouterOutlet, { static: true }) routerOutlet: IonRouterOutlet;
@@ -19,12 +21,14 @@ export class AppComponent {
     private router: Router,
     private location: Location,
     private storage: Storage,
-    private themeService: ThemeService) {
+    private themeService: ThemeService,
+    private languageService: LanguageService) {
     this.hardwareBackBtn();
   }
 
   ngOnInit() {
     this.createStorage();
+    this.languageService.setInitialAppLanguage();
   }
 
   hardwareBackBtn() {

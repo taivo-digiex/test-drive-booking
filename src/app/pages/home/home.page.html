@@ -1,6 +1,8 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>Home</ion-title>
+    <ion-title>
+      {{ 'PAGETITLE.home' | translate }}
+    </ion-title>
   </ion-toolbar>
   <ion-toolbar>
     <app-search-bar (query)="handleInput($event)"></app-search-bar>

@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button (click)="back()" defaultHref="/"></ion-back-button>
+      <ion-back-button (click)="back()" defaultHref="/" text="{{ 'COMMON.back' | translate }}"></ion-back-button>
     </ion-buttons>
     <ion-row slot="end">
       <ion-title>{{ data[0].brand }} {{ data[0].name }}</ion-title>
@@ -10,26 +10,26 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  
+
   <ion-img src="{{ data[0].img }}" class="main-img"></ion-img>
 
-  <h4><strong>Engine</strong></h4>
+  <h4><strong>{{ 'COMMON.engine' | translate }}</strong></h4>
   <ion-segment mode="ios" (ionChange)="engChanged($event)" class="eng-segment">
-    <ion-segment-button *ngFor="let eng of data[0].engs" value="{{ eng.type }} {{ eng.fuel }}">
+    <ion-segment-button *ngFor="let eng of data[0].engs" value="{{ eng.type }} {{'COMMON.' + eng.fuel | translate}}">
       <ion-label>{{ eng.type }}</ion-label>
-      <ion-label>{{ eng.fuel }}</ion-label>
+      <ion-label>{{"COMMON." + eng.fuel | translate}}</ion-label>
     </ion-segment-button>
   </ion-segment>
 
   <ion-row class="book-btn">
-    <ion-button strong="true" type="submit" color="primary" (click)="openModal()" [disabled]="blockClick" id="trigger-button">Book now <ion-icon
-        name="arrow-forward-circle"></ion-icon>
+    <ion-button strong="true" type="submit" color="primary" (click)="openModal()" [disabled]="blockClick"
+      id="trigger-button">{{ "COMMON.bookNow" | translate}}&nbsp;<ion-icon name="calendar"></ion-icon>
     </ion-button>
   </ion-row>
 
   <ion-card>
     <ion-card-header>
-      <ion-card-title>Description</ion-card-title>
+      <ion-card-title>{{ 'COMMON.description' | translate }}</ion-card-title>
     </ion-card-header>
     <ion-card-content>{{ data[0].desc }}</ion-card-content>
   </ion-card>

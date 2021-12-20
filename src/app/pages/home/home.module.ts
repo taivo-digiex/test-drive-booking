@@ -7,6 +7,7 @@ import { HomePage } from './home.page';
 import { HomePageRoutingModule } from './home-routing.module';
 import { ListCardComponentModule } from './components/list-card/list-card.module';
 import { SearchBarModule } from './components/search-bar/search-bar.module';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { SearchBarModule } from './components/search-bar/search-bar.module';
     FormsModule,
     HomePageRoutingModule,
     ListCardComponentModule,
-    SearchBarModule
+    SearchBarModule,
+    TranslateModule
   ],
   declarations: [HomePage]
 })

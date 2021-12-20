@@ -1,0 +1,52 @@
+{
+  "PAGETITLE": {
+    "home": "Trang Chủ",
+    "settings": "Cài Đặt",
+    "about": "Thông Tin",
+    "bookingTestDrive": "Đặt Lịch Lái Thử"
+  },
+
+  "COMMON": {
+    "about": "Thông tin",
+    "darkMode": "Chế độ tối",
+    "lightMode": "Chế độ sáng",
+    "languages": "Ngôn ngữ",
+    "search...": "Tìm kiếm...",
+    "engine": "Động cơ",
+    "bookNow": "Đặt lịch ngay",
+    "description": "Miêu tả",
+    "appName": "Tên ứng dụng",
+    "version": "Phiên bản",
+    "goBack": "Quay lại",
+    "close": "Đóng",
+    "back": "Trở lại",
+    "Fuel": "Nhiên liệu",
+    "Gas": "Xăng",
+    "Diesel": "Dầu Diesel",
+    "Hybrid": "Hybrid",
+    "Electric": "Điện",
+    "cancel": "Hủy",
+    "confirm": "Xác nhận"
+  },
+
+  "OTHER": {
+    "commingSoon...": "Sắp ra mắt...",
+    "pageNotFound": "Không tìm thấy trang",
+    "backToHome?": "Quay lại trang chủ?",
+    "confirmBookingHeader": "Xác nhận thông tin của bạn",
+    "bookingSuccess": "Xin chúc mừng! Đặt lịch thành công."
+  },
+
+  "FORM": {
+    "name": "Tên",
+    "phoneNumber": "Số điện thoại",
+    "email": "E-mail",
+    "vehicle": "Xe",
+    "engineType": "Loại động cơ",
+    "requiredMsg": "Trường chứa * là bắt buộc."
+  },
+
+  "BTN": {
+    "bookingBtn": "Đặt lịch"
+  }
+}

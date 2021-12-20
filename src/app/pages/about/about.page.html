@@ -3,15 +3,17 @@
     <ion-buttons slot="start">
       <ion-back-button (click)="back()" defaultHref="tabs/setting"></ion-back-button>
     </ion-buttons>
-    <ion-title>About</ion-title>
+    <ion-title>
+      {{ 'PAGETITLE.about' | translate }}
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
 
   <div id="container">
-    <strong>App name: </strong>{{ AppName }} <br />
-    <strong>Version: </strong>{{ VersionNumber }}
+    <strong>{{ 'COMMON.appName' | translate }}: </strong>{{ AppName }} <br />
+    <strong>{{ 'COMMON.version' | translate }}: </strong>{{ VersionNumber }}
   </div>
 
 </ion-content>

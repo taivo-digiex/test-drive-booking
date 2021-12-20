@@ -1,0 +1,52 @@
+{
+  "PAGETITLE": {
+    "home": "Home",
+    "settings": "Settings",
+    "about": "About",
+    "bookingTestDrive": "Booking Test Drive"
+  },
+
+  "COMMON": {
+    "about": "About",
+    "darkMode": "Dark mode",
+    "lightMode": "Light mode",
+    "languages": "Languages",
+    "search...": "Search...",
+    "engine": "Engine",
+    "bookNow": "Book now",
+    "description": "Description",
+    "appName": "App name",
+    "version": "Version",
+    "goBack": "Go back",
+    "close": "Close",
+    "back": "Back",
+    "Fuel": "Fuel",
+    "Gas": "Gas",
+    "Diesel": "Diesel",
+    "Hybrid": "Hybrid",
+    "Electric": "Electric",
+    "cancel": "Cancel",
+    "confirm": "Confirm"
+  },
+
+  "OTHER": {
+    "commingSoon...": "Comming soon...",
+    "pageNotFound": "Page not found",
+    "backToHome?": "Back to home?",
+    "confirmBookingHeader": "Confirm your information",
+    "bookingSuccess": "Congratulation! Booking successfully."
+  },
+
+  "FORM": {
+    "name": "Name",
+    "phoneNumber": "Phone number",
+    "email": "E-mail",
+    "vehicle": "Vehicle",
+    "engineType": "Engine type",
+    "requiredMsg": "Fields with * is required."
+  },
+
+  "BTN": {
+    "bookingBtn": "Booking"
+  }
+}
