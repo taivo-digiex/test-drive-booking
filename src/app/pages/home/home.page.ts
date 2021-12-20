@@ -59,9 +59,9 @@ export class HomePage {
     id: 6,
     brand: 'Toyota',
     name: 'Supra',
-    year: 1998,
+    year: 2020,
     desc: 'New car',
-    img: 'http://data.3dtuning.com/tun/6SOdFYFSRH.jpg',
+    img: 'https://i.xeoto.com.vn/auto/toyota/supra/toyota-supra-phien-ban-30-gt.png',
   },
   {
     id: 7,
@@ -113,9 +113,9 @@ export class HomePage {
   //       id: 6,
   //       brand: 'Toyota',
   //       name: 'Supra',
-  //       year: 1998,
+  //       year: 2020,
   //       desc: 'New car',
-  //       img: 'http://data.3dtuning.com/tun/6SOdFYFSRH.jpg',
+  //       img: 'https://i.xeoto.com.vn/auto/toyota/supra/toyota-supra-phien-ban-30-gt.png,
   //     },
   //     {
   //       id: 7,

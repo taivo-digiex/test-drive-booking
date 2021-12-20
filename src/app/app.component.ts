@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { Platform, IonRouterOutlet } from '@ionic/angular';
 import { Location } from '@angular/common';
 import { Storage } from '@ionic/storage-angular';
-import { ThemeService } from './theme.service';
+import { ThemeService } from './services/theme.service';
 
 @Component({
   selector: 'app-root',
@@ -11,10 +11,15 @@ import { ThemeService } from './theme.service';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-  
+
   @ViewChild(IonRouterOutlet, { static: true }) routerOutlet: IonRouterOutlet;
 
-  constructor(private platform: Platform, private router: Router, private location: Location, private storage: Storage, private themeService: ThemeService) {
+  constructor(
+    private platform: Platform,
+    private router: Router,
+    private location: Location,
+    private storage: Storage,
+    private themeService: ThemeService) {
     this.hardwareBackBtn();
   }
 

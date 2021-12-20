@@ -10,6 +10,7 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
+  
   <ion-img src="{{ data[0].img }}" class="main-img"></ion-img>
 
   <h4><strong>Engine</strong></h4>
@@ -20,15 +21,8 @@
     </ion-segment-button>
   </ion-segment>
 
-  <h4><strong>Design</strong></h4>
-  <ion-segment mode="ios" (ionChange)="designChanged($event)" class="design-segment">
-    <ion-segment-button *ngFor="let design of data[0].designs" value="{{ design.interior }}">
-      <ion-label>{{ design.interior }}</ion-label>
-    </ion-segment-button>
-  </ion-segment>
-
   <ion-row class="book-btn">
-    <ion-button strong="true" type="submit" color="primary" id="trigger-button">Book now <ion-icon
+    <ion-button strong="true" type="submit" color="primary" (click)="openModal()" [disabled]="blockClick" id="trigger-button">Book now <ion-icon
         name="arrow-forward-circle"></ion-icon>
     </ion-button>
   </ion-row>
@@ -39,5 +33,4 @@
     </ion-card-header>
     <ion-card-content>{{ data[0].desc }}</ion-card-content>
   </ion-card>
-  <app-modal></app-modal>
 </ion-content>

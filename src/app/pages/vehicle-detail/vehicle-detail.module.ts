@@ -1,13 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
-
 import { VehicleDetailPageRoutingModule } from './vehicle-detail-routing.module';
-
 import { VehicleDetailPage } from './vehicle-detail.page';
-import { ModalModule } from './components/modal/modal.module';
+import { ModalComponent } from './components/modal/modal.component';
 
 @NgModule({
   imports: [
@@ -15,8 +12,9 @@ import { ModalModule } from './components/modal/modal.module';
     FormsModule,
     IonicModule,
     VehicleDetailPageRoutingModule,
-    ModalModule
+    ReactiveFormsModule
   ],
-  declarations: [VehicleDetailPage]
+  declarations: [VehicleDetailPage, ModalComponent],
+  entryComponents: [ModalComponent]
 })
 export class VehicleDetailPageModule { }

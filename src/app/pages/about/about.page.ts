@@ -1,31 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { AppVersion } from '@awesome-cordova-plugins/app-version/ngx';
-import { ThemeService } from '../../theme.service'
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-about',
   templateUrl: 'about.page.html',
   styleUrls: ['about.page.scss']
 })
-export class AboutPage implements OnInit {
+export class AboutPage {
 
   public AppName: string;
   public VersionNumber: string;
-  public darkValue: any;
 
   constructor(
     private appVersion: AppVersion,
-    private ThemeService: ThemeService
+    private location: Location
   ) {
     this.getAppInfo();
-  }
-
-  get darkBoolean() {
-    return this.ThemeService.sharedDarkValue;
-  }
-
-  ngOnInit() {
-    this.darkValue = this.darkBoolean;
   }
 
   getAppInfo() {
@@ -41,8 +32,8 @@ export class AboutPage implements OnInit {
     });
   }
 
-  toggleTheme(ev) {
-    this.ThemeService.setAppTheme(ev.detail.checked);
+  back() {
+    this.location.back();
   }
 
 }
