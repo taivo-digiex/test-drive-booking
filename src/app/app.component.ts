@@ -14,7 +14,12 @@ export class AppComponent {
 
   @ViewChild(IonRouterOutlet, { static: true }) routerOutlet: IonRouterOutlet;
 
-  constructor(private platform: Platform, private router: Router, private location: Location, private storage: Storage, private themeService: ThemeService) {
+  constructor(
+    private platform: Platform,
+    private router: Router,
+    private location: Location,
+    private storage: Storage,
+    private themeService: ThemeService) {
     this.hardwareBackBtn();
   }
 
