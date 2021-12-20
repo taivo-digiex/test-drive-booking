@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ModalController } from '@ionic/angular';
+import { AlertController, ModalController, ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-modal',
@@ -10,16 +10,24 @@ import { ModalController } from '@ionic/angular';
 
 export class ModalComponent implements OnInit {
 
-  constructor(public fb: FormBuilder, private modalCtrl: ModalController) { }
+  @Input() eng: string;
+  @Input() vehicle: string;
 
   public formGroup: FormGroup;
+  public datetime: Date;
+
+  constructor(
+    private fb: FormBuilder,
+    private modalCtrl: ModalController,
+    private alertController: AlertController,
+    private toastController: ToastController) { }
 
   ngOnInit() {
     this.initForm();
   }
 
-  dismissModal() {
-    this.modalCtrl.dismiss();
+  async dismissModal() {
+    await this.modalCtrl.dismiss();
   }
 
   async initForm() {
@@ -36,14 +44,9 @@ export class ModalComponent implements OnInit {
         '',
         Validators.compose([Validators.email])
       ],
-      car: [
-        'NSX'
-      ],
-      engine: [
-        'VTEC Gas'
-      ],
+      vehicle: [this.vehicle],
+      engine: [this.eng]
     });
-
   }
 
   async bookingForm() {
@@ -51,28 +54,31 @@ export class ModalComponent implements OnInit {
   }
 
   async submitBooking() {
-    if (!this.formGroup.valid) {
-      alert('Please provide all the required values!')
-      return false;
-    } else {
-      console.log(this.formGroup.value);
-    }
+    const alert = await this.alertController.create({
+      header: 'Check your detail again',
+      message: JSON.stringify(this.formGroup.value),
+      buttons: [{
+        text: 'Cancel',
+        role: 'cancle',
+      },
+      {
+        text: 'Confirm',
+        role: 'confirm',
+        handler: () => {
+          this.formGroup.value['datetime'] = new Date().toLocaleString();
+          this.dismissModal();
+          this.presentToast();
+        }
+      }]
+    });
+    await alert.present();
   }
 
-  get errorControl() {
-    return this.formGroup.controls;
-  }
-
-  getDate(e) {
-    let date = new Date(e.target.value).toDateString();
-    let time = new Date(e.target.value).toTimeString().substring(0, 5);
-
-    this.formGroup.get('date').setValue(date, {
-      onlyself: true
-    })
-
-    this.formGroup.get('time').setValue(time, {
-      onlyself: true
-    })
+  async presentToast() {
+    const toast = await this.toastController.create({
+      message: 'Congratulation! booking successful.',
+      duration: 2000
+    });
+    toast.present();
   }
 }

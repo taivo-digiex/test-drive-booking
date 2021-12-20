@@ -1,14 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
+import { ModalComponent } from './components/modal/modal.component';
+import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-vehicle-detail',
   templateUrl: './vehicle-detail.page.html',
   styleUrls: ['./vehicle-detail.page.scss'],
 })
+
 export class VehicleDetailPage implements OnInit {
-  constructor(private router: Router, private location: Location) { }
+
+  public blockClick: boolean = true;
+  public eng: string;
+  public vehicle: string;
+
+  constructor(private router: Router, private location: Location, private modalCtrl: ModalController) { }
 
   ngOnInit() {
     this.getVehicleDetail();
@@ -193,17 +201,23 @@ export class VehicleDetailPage implements OnInit {
       this.router.getCurrentNavigation().finalUrl.root.children.primary
         .segments[1].path;
     this.data = this.data.filter((x) => x.id == parseInt(vehicleId));
+    this.vehicle = this.data[0].brand.concat(' ', this.data[0].name);
   }
 
   engChanged(ev: any) {
-    const eng = ev.detail.value;
-  }
-
-  designChanged(ev: any) {
-    const design = ev.detail.value;
+    this.eng = ev.detail.value;
+    this.blockClick = false;
   }
 
   back() {
     this.location.back();
+  }
+
+  async openModal() {
+    const modal = await this.modalCtrl.create({
+      component: ModalComponent,
+      componentProps: { vehicle: this.vehicle, eng: this.eng },
+    })
+    await modal.present();
   }
 }
