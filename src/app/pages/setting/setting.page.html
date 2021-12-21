@@ -33,13 +33,13 @@
     <ion-item>
       <ion-icon slot="start" [ios]="langIcon+'-outline'" [md]="langIcon +'-sharp'"></ion-icon>
       <ion-label>{{ 'COMMON.languages' | translate }}</ion-label>
-      <ion-select (ionChange)="select($event)" interface="popover" [value]="selected">
+      <ion-select slot="end" (ionChange)="select($event)" interface="popover" [value]="selected">
         <ion-select-option *ngFor="let lng of languages" value="{{ lng.value }}">
           {{ lng.text }}
         </ion-select-option>
       </ion-select>
     </ion-item>
-    
+
     <ion-item [routerLink]="['/about']">
       <ion-icon slot="start" [ios]="aboutIcon + '-outline'" [md]="aboutIcon + '-sharp'"></ion-icon>
       <ion-label>{{ 'COMMON.about' | translate }}</ion-label>

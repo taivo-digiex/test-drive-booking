@@ -23,6 +23,8 @@ export class LanguageService {
       if (val) {
         this.setLanguage(val);
         this.selected = val;
+      } else {
+        this.selected = 'en';
       }
     })
   }

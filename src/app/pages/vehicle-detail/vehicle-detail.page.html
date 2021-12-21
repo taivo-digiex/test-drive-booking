@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button (click)="back()" defaultHref="/" text="{{ 'COMMON.back' | translate }}"></ion-back-button>
+      <ion-back-button (click)="back()" defaultHref="/" text=""></ion-back-button>
     </ion-buttons>
     <ion-row slot="end">
       <ion-title>{{ data[0].brand }} {{ data[0].name }}</ion-title>
@@ -15,7 +15,7 @@
 
   <h4><strong>{{ 'COMMON.engine' | translate }}</strong></h4>
   <ion-segment mode="ios" (ionChange)="engChanged($event)" class="eng-segment">
-    <ion-segment-button *ngFor="let eng of data[0].engs" value="{{ eng.type }} {{'COMMON.' + eng.fuel | translate}}">
+    <ion-segment-button *ngFor="let eng of data[0].engs" value="{{ eng.type }} {{ eng.fuel }}">
       <ion-label>{{ eng.type }}</ion-label>
       <ion-label>{{"COMMON." + eng.fuel | translate}}</ion-label>
     </ion-segment-button>
