@@ -1,24 +1,29 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { VehicleDetailComponent } from './vehicle-detail/vehicle-detail.component';
 
 const routes: Routes = [
   {
     path: '',
     loadChildren: () =>
-      import('./tabs/tabs.module').then((m) => m.TabsPageModule),
+      import('./pages/tabs/tabs.module').then((m) => m.TabsPageModule),
   },
   {
     path: 'vehicle-detail/:carId',
-    component: VehicleDetailComponent
+    loadChildren: () => import('./pages/vehicle-detail/vehicle-detail.module').then((m) => m.VehicleDetailPageModule),
+  },
+  {
+    path: 'about',
+    loadChildren: () =>
+      import('./pages/about/about.module').then((m) => m.AboutPageModule),
   },
   {
     path: '**',
     loadChildren: () =>
-      import('./page-not-found/page-not-found.module').then(
+      import('./pages/page-not-found/page-not-found.module').then(
         (m) => m.PageNotFoundPageModule
       ),
   }
+
 ];
 @NgModule({
   imports: [
@@ -26,4 +31,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

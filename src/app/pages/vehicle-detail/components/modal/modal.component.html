@@ -1,0 +1,52 @@
+<ion-header translucent>
+  <ion-toolbar>
+    <ion-title>
+      {{ 'PAGETITLE.bookingTestDrive' | translate }}
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismissModal()">
+        {{ 'COMMON.close' | translate }}
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="formGroup" novalidate>
+    <ion-item>
+      <ion-label position="floating">{{ 'FORM.name' | translate }} *</ion-label>
+      <ion-input formControlName="name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">{{ 'FORM.phoneNumber' | translate }} *</ion-label>
+      <ion-input type="tel" formControlName="phone"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">{{ 'FORM.email' | translate }}</ion-label>
+      <ion-input formControlName="email" type="email">
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">{{ 'FORM.vehicle' | translate }}</ion-label>
+      <ion-input formControlName="vehicle" readonly></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">{{ 'FORM.engineType' | translate }}</ion-label>
+      <ion-input formControlName="engine" readonly></ion-input>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-text color="danger">{{ 'FORM.requiredMsg' | translate }}</ion-text>
+    </ion-item>
+
+  </form>
+</ion-content>
+
+<ion-footer>
+  <ion-button size="block" color="primary" [disabled]="formGroup.invalid" (click)="bookingForm()">{{ 'BTN.bookingBtn' |
+    translate }}</ion-button>
+</ion-footer>
