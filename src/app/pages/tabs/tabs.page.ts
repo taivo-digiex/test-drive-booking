@@ -10,7 +10,7 @@ export class TabsPage {
 
   public pageTab = [
     { title: 'Weather', url: 'tab2', icon: 'cloud' },
-    { title: 'Home', url: 'home', icon: 'home' },
-    { title: 'Setting', url: 'setting', icon: 'settings' },
+    { title: 'PAGETITLE.home', url: 'home', icon: 'home' },
+    { title: 'PAGETITLE.settings', url: 'setting', icon: 'settings' },
   ];
 }

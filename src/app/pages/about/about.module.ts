@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { AboutPage } from './about.page';
 import { AboutPageRoutingModule } from './about-routing.module';
 import { AppVersion } from '@awesome-cordova-plugins/app-version/ngx';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
@@ -14,6 +15,7 @@ import { AppVersion } from '@awesome-cordova-plugins/app-version/ngx';
     FormsModule,
     RouterModule.forChild([{ path: '', component: AboutPage }]),
     AboutPageRoutingModule,
+    TranslateModule
   ],
   declarations: [AboutPage],
   providers: [AppVersion]

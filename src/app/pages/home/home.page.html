@@ -1,13 +1,15 @@
-<ion-header [translucent]="true">
+<ion-header [translucent]="true" #header>
   <ion-toolbar>
-    <ion-title>Home</ion-title>
+    <ion-title>
+      {{ 'PAGETITLE.home' | translate }}
+    </ion-title>
   </ion-toolbar>
   <ion-toolbar>
     <app-search-bar (query)="handleInput($event)"></app-search-bar>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content scrollEvents="true" (ionScroll)='onContentScroll($event)' [fullscreen]="true">
   <ion-list *ngFor="let car of dataFiltered">
     <ion-card (click)="getVehicle(car.id)">
       <ion-card-content>

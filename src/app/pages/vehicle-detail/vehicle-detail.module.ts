@@ -5,6 +5,7 @@ import { IonicModule } from '@ionic/angular';
 import { VehicleDetailPageRoutingModule } from './vehicle-detail-routing.module';
 import { VehicleDetailPage } from './vehicle-detail.page';
 import { ModalComponent } from './components/modal/modal.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
@@ -12,7 +13,8 @@ import { ModalComponent } from './components/modal/modal.component';
     FormsModule,
     IonicModule,
     VehicleDetailPageRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    TranslateModule
   ],
   declarations: [VehicleDetailPage, ModalComponent],
   entryComponents: [ModalComponent]

@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AlertController, ModalController, ToastController } from '@ionic/angular';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-modal',
@@ -20,7 +21,8 @@ export class ModalComponent implements OnInit {
     private fb: FormBuilder,
     private modalCtrl: ModalController,
     private alertController: AlertController,
-    private toastController: ToastController) { }
+    private toastController: ToastController,
+    private translate: TranslateService) { }
 
   ngOnInit() {
     this.initForm();
@@ -55,14 +57,14 @@ export class ModalComponent implements OnInit {
 
   async submitBooking() {
     const alert = await this.alertController.create({
-      header: 'Check your detail again',
+      header: this.translate.instant('OTHER.confirmBookingHeader'),
       message: JSON.stringify(this.formGroup.value),
       buttons: [{
-        text: 'Cancel',
-        role: 'cancle',
+        text: this.translate.instant('COMMON.cancel'),
+        role: 'cancel',
       },
       {
-        text: 'Confirm',
+        text: this.translate.instant('COMMON.confirm'),
         role: 'confirm',
         handler: () => {
           this.formGroup.value['datetime'] = new Date().toLocaleString();
@@ -76,7 +78,7 @@ export class ModalComponent implements OnInit {
 
   async presentToast() {
     const toast = await this.toastController.create({
-      message: 'Congratulation! booking successful.',
+      message: this.translate.instant('OTHER.bookingSuccess'),
       duration: 2000
     });
     toast.present();
