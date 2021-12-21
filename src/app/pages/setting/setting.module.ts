@@ -16,4 +16,4 @@ import { TranslateModule } from '@ngx-translate/core';
   ],
   declarations: [SettingPage]
 })
-export class SettingPageModule {}
+export class SettingPageModule { }

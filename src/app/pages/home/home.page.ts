@@ -1,4 +1,4 @@
-import { Component, Input, ViewChild } from '@angular/core';
+import { Component, ElementRef, Renderer2, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { IonInfiniteScroll } from '@ionic/angular';
 
@@ -9,9 +9,11 @@ import { IonInfiniteScroll } from '@ionic/angular';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+
+  @ViewChild("header") header: HTMLElement;
   @ViewChild(IonInfiniteScroll) infiniteScroll: IonInfiniteScroll;
 
-  constructor(private route: Router) { }
+  constructor(private route: Router, private renderer: Renderer2) { }
 
   ngOnInit() { }
 
@@ -175,6 +177,19 @@ export class HomePage {
       this.dataFiltered = this.data.filter(term => term.brand.toLowerCase().indexOf(query) > -1 || term.name.toLowerCase().indexOf(query) > -1 || term.brand.concat(' ', term.name).toLowerCase().indexOf(query) > -1)
     } else {
       this.dataFiltered = this.data;
+    }
+  }
+
+  ionViewWillEnter() {
+    this.renderer.setStyle(this.header['el'], 'webkitTransition', 'top 1000ms');
+  }
+
+  onContentScroll(event) {
+    let checkScrollDirection = event.detail.currentY > event.detail.startY
+    if (event.detail.scrollTop >= 90 && checkScrollDirection) {
+      this.renderer.setStyle(this.header['el'], 'top', '-125px');
+    } else {
+      this.renderer.setStyle(this.header['el'], 'top', '0');
     }
   }
 }
