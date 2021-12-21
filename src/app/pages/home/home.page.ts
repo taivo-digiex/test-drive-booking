@@ -181,7 +181,7 @@ export class HomePage {
   }
 
   ionViewWillEnter() {
-    this.renderer.setStyle(this.header['el'], 'webkitTransition', 'top 1000ms');
+    this.renderer.setStyle(this.header['el'], 'webkitTransition', 'top 700ms');
   }
 
   onContentScroll(event) {
