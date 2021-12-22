@@ -11,7 +11,16 @@
   (ionScroll)="onContentScroll($event)"
   [fullscreen]="true"
 >
-  <ion-list *ngFor="let car of dataFiltered">
-    <app-list-card [car]="car" (click)="getVehicle(car.id)"></app-list-card>
+  <ion-list>
+    <ion-grid>
+      <ion-row>
+        <ion-col *ngFor="let car of dataFiltered" size="6">
+          <app-list-card
+            [car]="car"
+            (click)="getVehicle(car.id)"
+          ></app-list-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </ion-list>
 </ion-content>

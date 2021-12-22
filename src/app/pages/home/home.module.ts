@@ -21,4 +21,4 @@ import { TranslateModule } from '@ngx-translate/core';
   ],
   declarations: [HomePage]
 })
-export class HomePageModule {}
+export class HomePageModule { }
