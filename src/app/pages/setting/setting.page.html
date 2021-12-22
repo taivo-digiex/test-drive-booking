@@ -84,31 +84,20 @@
 </ion-content>
 
 <ion-footer class="ion-no-border">
-  <ion-toolbar>
-    <ion-row class="social-row">
-      <ion-text><p>{{ 'COMMON.followMe' | translate}}:</p></ion-text>
-      <ion-button
-        class="social-btn"
-        fill="none"
-        href="https://www.fb.com/vdt.2210"
-      >
-        <ion-img
-          class="social-imgs"
-          src="../../../assets/icon/fb_logo.png"
-          alt="Facebook"
-        ></ion-img>
-      </ion-button>
-      <ion-button
-        class="social-btn"
-        fill="none"
-        href="https://www.instagram.com/vdt.2210"
-      >
-        <ion-img
-          class="social-imgs"
-          src="../../../assets/icon/insta_logo.png"
-          alt="Facebook"
-        ></ion-img>
-      </ion-button>
-    </ion-row>
-  </ion-toolbar>
+  <ion-text class="ion-text-center">
+    <p>{{ 'COMMON.connectWithMeOn' | translate}}:</p>
+  </ion-text>
+  <ion-buttons class="social-buttons">
+    <ion-button class="social-btn" href="https://www.facebook.com/vdt.2210">
+      <ion-icon slot="icon-only" name="logo-facebook"></ion-icon>
+    </ion-button>
+
+    <ion-button class="social-btn" href="https://www.instagram.com/vdt.2210">
+      <ion-icon slot="icon-only" name="logo-instagram"></ion-icon>
+    </ion-button>
+
+    <ion-button class="social-btn">
+      <ion-icon slot="icon-only" name="logo-twitter"></ion-icon>
+    </ion-button>
+  </ion-buttons>
 </ion-footer>
