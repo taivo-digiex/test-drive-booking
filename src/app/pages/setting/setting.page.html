@@ -1,8 +1,6 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      {{ 'PAGETITLE.settings' | translate }}
-    </ion-title>
+    <ion-title> {{ 'PAGETITLE.settings' | translate }} </ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -17,37 +15,100 @@
 
   <ion-list>
     <ion-item lines="none" *ngIf="darkValue">
-      <ion-icon slot="start" [ios]="darkIcon + '-outline'" [md]="darkIcon + '-sharp'"></ion-icon>
+      <ion-icon
+        slot="start"
+        [ios]="darkIcon + '-outline'"
+        [md]="darkIcon + '-sharp'"
+      ></ion-icon>
       <ion-label>{{ 'COMMON.darkMode' | translate }}</ion-label>
-      <ion-toggle slot="end" [(ngModel)]="darkValue" [checked]="darkValue" (ionChange)="toggleTheme($event)">
+      <ion-toggle
+        slot="end"
+        [(ngModel)]="darkValue"
+        [checked]="darkValue"
+        (ionChange)="toggleTheme($event)"
+      >
       </ion-toggle>
     </ion-item>
 
     <ion-item lines="none" *ngIf="!darkValue">
-      <ion-icon slot="start" [ios]="lightIcon + '-outline'" [md]="lightIcon + '-sharp'"></ion-icon>
+      <ion-icon
+        slot="start"
+        [ios]="lightIcon + '-outline'"
+        [md]="lightIcon + '-sharp'"
+      ></ion-icon>
       <ion-label>{{ 'COMMON.lightMode' | translate }}</ion-label>
-      <ion-toggle slot="end" [(ngModel)]="darkValue" [checked]="darkValue" (ionChange)="toggleTheme($event)">
+      <ion-toggle
+        slot="end"
+        [(ngModel)]="darkValue"
+        [checked]="darkValue"
+        (ionChange)="toggleTheme($event)"
+      >
       </ion-toggle>
     </ion-item>
 
     <ion-item lines="none">
-      <ion-icon slot="start" [ios]="langIcon+'-outline'" [md]="langIcon +'-sharp'"></ion-icon>
+      <ion-icon
+        slot="start"
+        [ios]="langIcon+'-outline'"
+        [md]="langIcon +'-sharp'"
+      ></ion-icon>
       <ion-label>{{ 'COMMON.languages' | translate }}</ion-label>
       <ion-select slot="end" (ionChange)="select($event)" [value]="selected">
-        <ion-select-option *ngFor="let lng of languages" value="{{ lng.value }}">
+        <ion-select-option
+          *ngFor="let lng of languages"
+          value="{{ lng.value }}"
+        >
           {{ lng.text }}
         </ion-select-option>
       </ion-select>
     </ion-item>
 
     <ion-item lines="none" [routerLink]="['/about']">
-      <ion-icon slot="start" [ios]="aboutIcon + '-outline'" [md]="aboutIcon + '-sharp'"></ion-icon>
+      <ion-icon
+        slot="start"
+        [ios]="aboutIcon + '-outline'"
+        [md]="aboutIcon + '-sharp'"
+      ></ion-icon>
       <ion-label>{{ 'COMMON.about' | translate }}</ion-label>
     </ion-item>
 
     <ion-item lines="none">
-      <ion-icon slot="start" [ios]="'hammer-outline'" [md]="'hammer-sharp'"></ion-icon>
+      <ion-icon
+        slot="start"
+        [ios]="'hammer-outline'"
+        [md]="'hammer-sharp'"
+      ></ion-icon>
       <ion-label>{{ 'OTHER.commingSoon...' | translate }}</ion-label>
     </ion-item>
   </ion-list>
 </ion-content>
+
+<ion-footer class="ion-no-border">
+  <ion-toolbar>
+    <ion-row class="social-row">
+      <ion-text><p>{{ 'COMMON.followMe' | translate}}:</p></ion-text>
+      <ion-button
+        class="social-btn"
+        fill="none"
+        href="https://www.fb.com/vdt.2210"
+      >
+        <ion-img
+          class="social-imgs"
+          src="../../../assets/icon/fb_logo.png"
+          alt="Facebook"
+        ></ion-img>
+      </ion-button>
+      <ion-button
+        class="social-btn"
+        fill="none"
+        href="https://www.instagram.com/vdt.2210"
+      >
+        <ion-img
+          class="social-imgs"
+          src="../../../assets/icon/insta_logo.png"
+          alt="Facebook"
+        ></ion-img>
+      </ion-button>
+    </ion-row>
+  </ion-toolbar>
+</ion-footer>
