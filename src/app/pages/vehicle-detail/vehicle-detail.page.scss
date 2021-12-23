@@ -10,11 +10,34 @@
   margin-right: auto;
 }
 
-.main-img {
-  width: 90%;
-  margin: 10px auto;
-}
+// .main-img {
+//   width: 90%;
+//   margin: 10px auto;
+// }
 
 h4 {
   text-align: center;
+}
+
+@import "~swiper/css";
+@import "~swiper/css/pagination";
+.swiper {
+  width: auto;
+  height: 250px;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+
+  /* Center slide text vertically */
+  display: grid !important;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-img {
+  display: block;
+  height: inherit;
+  object-fit: cover;
 }

@@ -1,29 +1,63 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button (click)="back()" defaultHref="/" text=""></ion-back-button>
+      <ion-back-button
+        (click)="back()"
+        defaultHref="/"
+        text=""
+      ></ion-back-button>
     </ion-buttons>
     <ion-row slot="end">
-      <ion-title>{{ data[0].brand }} {{ data[0].name }}</ion-title>
+      <ion-title> {{vehicleName}} </ion-title>
     </ion-row>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-
-  <ion-img src="{{ data[0].img }}" class="main-img"></ion-img>
+  <ion-card>
+    <swiper
+      [centeredSlides]="true"
+      [autoplay]="{
+      delay: 4000,
+      disableOnInteraction: false
+    }"
+      [pagination]="{
+      clickable: true
+    }"
+      class="mySwiper"
+    >
+      <ng-template swiperSlide *ngFor="let img of vehicleImg">
+        <ion-img
+          src="{{ img }}"
+          alt="{{ vehicleName }}"
+          class="main-img"
+        ></ion-img>
+      </ng-template>
+    </swiper>
+  </ion-card>
 
   <h4><strong>{{ 'COMMON.engine' | translate }}</strong></h4>
   <ion-segment mode="ios" (ionChange)="engChanged($event)" class="eng-segment">
-    <ion-segment-button *ngFor="let eng of data[0].engs" value="{{ eng.type }} {{ eng.fuel }}">
+    <ion-segment-button
+      *ngFor="let eng of data[0].engs"
+      value="{{ eng.type }} {{ eng.fuel }}"
+    >
       <ion-label>{{ eng.type }}</ion-label>
       <ion-label>{{"COMMON." + eng.fuel | translate}}</ion-label>
     </ion-segment-button>
   </ion-segment>
 
   <ion-row class="book-btn">
-    <ion-button strong="true" type="submit" color="primary" (click)="openModal()" [disabled]="blockClick"
-      id="trigger-button">{{ "COMMON.bookNow" | translate}}&nbsp;<ion-icon name="calendar"></ion-icon>
+    <ion-button
+      strong="true"
+      type="submit"
+      color="primary"
+      (click)="openModal()"
+      [disabled]="blockClick"
+      id="trigger-button"
+      >{{ "COMMON.bookNow" | translate}}&nbsp;<ion-icon
+        name="calendar"
+      ></ion-icon>
     </ion-button>
   </ion-row>
 

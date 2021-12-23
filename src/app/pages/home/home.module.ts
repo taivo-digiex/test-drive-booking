@@ -8,6 +8,7 @@ import { HomePageRoutingModule } from './home-routing.module';
 import { ListCardComponentModule } from './components/list-card/list-card.module';
 import { SearchBarModule } from './components/search-bar/search-bar.module';
 import { TranslateModule } from '@ngx-translate/core';
+import { SwiperModule } from 'swiper/angular';
 
 @NgModule({
   imports: [
@@ -17,7 +18,8 @@ import { TranslateModule } from '@ngx-translate/core';
     HomePageRoutingModule,
     ListCardComponentModule,
     SearchBarModule,
-    TranslateModule
+    TranslateModule,
+    SwiperModule
   ],
   declarations: [HomePage]
 })

@@ -1,26 +1,63 @@
 <ion-header [translucent]="true" #header>
-  <ion-toolbar>
+  <ion-toolbar [hidden]="hideHeader">
     <ion-title> {{ 'PAGETITLE.home' | translate }} </ion-title>
+    <ion-buttons slot="end" class="cus-ion-btns">
+      <ion-button (click)="toggleShowSearchBar()">
+        <ion-icon
+          slot="icon-only"
+          [ios]="searchIcon + '-outline'"
+          [md]="searchIcon + '-sharp'"
+        ></ion-icon>
+      </ion-button>
+      <ion-button [routerLink]="['/settings']">
+        <ion-icon
+          slot="icon-only"
+          [ios]="settingsIcon + '-outline'"
+          [md]="settingsIcon + '-sharp'"
+        ></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
-  <ion-toolbar>
-    <app-search-bar (query)="handleInput($event)"></app-search-bar>
+  <ion-toolbar [hidden]="hideSearchBar">
+    <app-search-bar
+      (ionCancel)="togglehideSearchBar()"
+      (query)="handleInput($event)"
+    ></app-search-bar>
   </ion-toolbar>
 </ion-header>
+
 <ion-content
   scrollEvents="true"
   (ionScroll)="onContentScroll($event)"
   [fullscreen]="true"
 >
-  <ion-list>
-    <ion-grid>
-      <ion-row>
-        <ion-col *ngFor="let car of dataFiltered" size="6">
-          <app-list-card
-            [car]="car"
-            (click)="getVehicle(car.id)"
-          ></app-list-card>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-  </ion-list>
+  <ion-card *ngIf="!checkQuery">
+    <swiper
+      [centeredSlides]="true"
+      [autoplay]="{
+      delay: 4000,
+      disableOnInteraction: false
+    }"
+      [pagination]="{
+      clickable: true
+    }"
+      class="mySwiper"
+    >
+      <ng-template swiperSlide *ngFor="let car of data">
+        <ion-img
+          class="slide-img"
+          src="{{ car.img }}"
+          alt="{{ car.brand }} {{ car.name }}"
+        ></ion-img>
+      </ng-template>
+    </swiper>
+  </ion-card>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col *ngFor="let car of dataFiltered" size="6">
+        <app-list-card [car]="car" (click)="getVehicle(car.id)"></app-list-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

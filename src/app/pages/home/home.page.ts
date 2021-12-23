@@ -1,21 +1,26 @@
-import { Component, ElementRef, Renderer2, ViewChild } from '@angular/core';
+import { Component, Renderer2, ViewChild, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 import { IonInfiniteScroll } from '@ionic/angular';
+import SwiperCore, { Autoplay, Pagination } from "swiper";
 
+SwiperCore.use([Autoplay, Pagination]);
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class HomePage {
 
   @ViewChild("header") header: HTMLElement;
   @ViewChild(IonInfiniteScroll) infiniteScroll: IonInfiniteScroll;
 
-  constructor(private route: Router, private renderer: Renderer2) { }
-
-  ngOnInit() { }
+  public checkQuery: string;
+  public settingsIcon: string = "settings";
+  public searchIcon: string = "search";
+  public hideSearchBar: boolean = true;
+  public hideHeader: boolean = false;
 
   public data: Array<any> = [{
     id: 1,
@@ -101,14 +106,21 @@ export class HomePage {
 
   public dataFiltered: Array<any> = this.data;
 
+  constructor(private route: Router, private renderer: Renderer2) { }
+
+  ngOnInit() { }
+
+
   getVehicle(carId: number) {
     this.route.navigate(['vehicle-detail/', carId]);
   }
 
   handleInput(query: string) {
     if (query && query.trim() !== '') {
+      this.checkQuery = query;
       this.dataFiltered = this.data.filter(term => term.brand.toLowerCase().indexOf(query) > -1 || term.name.toLowerCase().indexOf(query) > -1 || term.brand.concat(' ', term.name).toLowerCase().indexOf(query) > -1)
     } else {
+      this.checkQuery = null;
       this.dataFiltered = this.data;
     }
   }
@@ -124,5 +136,15 @@ export class HomePage {
     } else {
       this.renderer.setStyle(this.header['el'], 'top', '0');
     }
+  }
+
+  toggleShowSearchBar() {
+    this.hideHeader = true;
+    this.hideSearchBar = false;
+  }
+
+  togglehideSearchBar() {
+    this.hideSearchBar = true;
+    this.hideHeader = false;
   }
 }
