@@ -34,7 +34,7 @@ export class AppComponent {
   hardwareBackBtn() {
     this.platform.backButton.subscribeWithPriority(10, () => {
       const url = this.router.url;
-      if (!this.routerOutlet.canGoBack() && url === '/tabs/home') {
+      if (!this.routerOutlet.canGoBack() && url === '/home') {
         navigator['app'].exitApp();
       }
       else {
