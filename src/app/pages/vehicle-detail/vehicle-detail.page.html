@@ -14,27 +14,25 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-card>
-    <swiper
-      [centeredSlides]="true"
-      [autoplay]="{
+  <swiper
+    [centeredSlides]="true"
+    [autoplay]="{
       delay: 4000,
       disableOnInteraction: false
     }"
-      [pagination]="{
+    [pagination]="{
       clickable: true
     }"
-      class="mySwiper"
-    >
-      <ng-template swiperSlide *ngFor="let img of vehicleImg">
-        <ion-img
-          src="{{ img }}"
-          alt="{{ vehicleName }}"
-          class="main-img"
-        ></ion-img>
-      </ng-template>
-    </swiper>
-  </ion-card>
+    class="mySwiper"
+  >
+    <ng-template swiperSlide *ngFor="let img of vehicleImg">
+      <ion-img
+        src="{{ img }}"
+        alt="{{ vehicleName }}"
+        class="main-img"
+      ></ion-img>
+    </ng-template>
+  </swiper>
 
   <h4><strong>{{ 'COMMON.engine' | translate }}</strong></h4>
   <ion-segment mode="ios" (ionChange)="engChanged($event)" class="eng-segment">
