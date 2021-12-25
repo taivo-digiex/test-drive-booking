@@ -1,18 +1,24 @@
-ion-card-title {
+ion-label {
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
-  font-size: 20px;
-}
-
-ion-card {
-  height: 190px;
-  margin: auto;
+  font-size: 15px;
 }
 
 .vehicle-img {
-  width: auto;
-  height: 100px;
+  max-width: 140px;
+  margin-right: 20px;
+  max-height: 90px;
+  width: 140px;
+  height: 90px;
+}
+
+ion-row {
+  margin: 0 10px;
+}
+
+ion-col {
+  place-self: center;
 }

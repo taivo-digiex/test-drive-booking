@@ -9,7 +9,7 @@
   "COMMON": {
     "about": "About",
     "darkMode": "Dark mode",
-    "lightMode": "Light mode",
+    "sysDefault": "System default",
     "languages": "Languages",
     "search...": "Search...",
     "engine": "Engine",

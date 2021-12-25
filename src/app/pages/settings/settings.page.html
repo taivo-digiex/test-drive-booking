@@ -32,10 +32,10 @@
     <ion-item lines="none" *ngIf="!darkValue">
       <ion-icon
         slot="start"
-        [ios]="lightIcon + '-outline'"
-        [md]="lightIcon + '-sharp'"
+        [ios]="autoIcon + '-outline'"
+        [md]="autoIcon + '-sharp'"
       ></ion-icon>
-      <ion-label>{{ 'COMMON.lightMode' | translate }}</ion-label>
+      <ion-label>{{ 'COMMON.sysDefault' | translate }}</ion-label>
       <ion-toggle
         slot="end"
         [(ngModel)]="darkValue"

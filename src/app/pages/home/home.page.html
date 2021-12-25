@@ -53,11 +53,11 @@
     </swiper>
   </ion-card>
 
-  <ion-grid>
-    <ion-row>
-      <ion-col *ngFor="let car of dataFiltered" size="6">
-        <app-list-card [car]="car" (click)="getVehicle(car.id)"></app-list-card>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+  <ion-list>
+    <app-list-card
+      *ngFor="let car of dataFiltered"
+      [car]="car"
+      (click)="getVehicle(car.id)"
+    ></app-list-card>
+  </ion-list>
 </ion-content>

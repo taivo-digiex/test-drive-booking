@@ -9,7 +9,7 @@
   "COMMON": {
     "about": "Thông tin",
     "darkMode": "Chế độ tối",
-    "lightMode": "Chế độ sáng",
+    "sysDefault": "Theo hệ thống",
     "languages": "Ngôn ngữ",
     "search...": "Tìm kiếm...",
     "engine": "Động cơ",

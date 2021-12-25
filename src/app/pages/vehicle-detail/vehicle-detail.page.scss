@@ -38,6 +38,7 @@ h4 {
 
 .main-img {
   display: block;
-  height: inherit;
+  max-width: 300px;
+  height: auto;
   object-fit: cover;
 }

@@ -13,7 +13,7 @@ export class SettingsPage implements OnInit {
   public darkValue: any;
   public aboutIcon: string = 'alert-circle';
   public darkIcon: string = 'moon';
-  public lightIcon: string = 'sunny';
+  public autoIcon: string = 'contrast';
   public langIcon: string = 'language';
   public languages = [];
   public selected = '';
