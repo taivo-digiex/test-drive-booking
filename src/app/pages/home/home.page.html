@@ -53,11 +53,9 @@
     </swiper>
   </ion-card>
 
-  <ion-list>
-    <app-list-card
-      *ngFor="let car of dataFiltered"
-      [car]="car"
-      (click)="getVehicle(car.id)"
-    ></app-list-card>
-  </ion-list>
+  <app-vehicle-card
+    *ngFor="let car of dataFiltered"
+    [car]="car"
+    (click)="getVehicle(car.id)"
+  ></app-vehicle-card>
 </ion-content>

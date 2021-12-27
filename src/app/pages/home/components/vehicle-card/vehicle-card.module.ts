@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ListCardComponent } from './list-card.component';
+import { VehicleCardComponent } from './vehicle-card.component';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 @NgModule({
-  declarations: [ListCardComponent],
+  declarations: [VehicleCardComponent],
   imports: [CommonModule, FormsModule, IonicModule],
-  exports: [ListCardComponent],
+  exports: [VehicleCardComponent],
 })
-export class ListCardComponentModule { }
+export class VehicleCardComponentModule {}

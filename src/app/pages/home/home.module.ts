@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { HomePage } from './home.page';
 
 import { HomePageRoutingModule } from './home-routing.module';
-import { ListCardComponentModule } from './components/list-card/list-card.module';
+import { VehicleCardComponentModule } from './components/vehicle-card/vehicle-card.module';
 import { SearchBarModule } from './components/search-bar/search-bar.module';
 import { TranslateModule } from '@ngx-translate/core';
 import { SwiperModule } from 'swiper/angular';
@@ -16,11 +16,11 @@ import { SwiperModule } from 'swiper/angular';
     CommonModule,
     FormsModule,
     HomePageRoutingModule,
-    ListCardComponentModule,
+    VehicleCardComponentModule,
     SearchBarModule,
     TranslateModule,
-    SwiperModule
+    SwiperModule,
   ],
-  declarations: [HomePage]
+  declarations: [HomePage],
 })
-export class HomePageModule { }
+export class HomePageModule {}
