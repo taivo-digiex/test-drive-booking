@@ -11,9 +11,7 @@ import { LanguageService } from './services/language/language.service';
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss'],
 })
-
 export class AppComponent {
-
   @ViewChild(IonRouterOutlet, { static: true }) routerOutlet: IonRouterOutlet;
 
   constructor(
@@ -22,7 +20,8 @@ export class AppComponent {
     private location: Location,
     private storage: Storage,
     private themeService: ThemeService,
-    private languageService: LanguageService) {
+    private languageService: LanguageService
+  ) {
     this.hardwareBackBtn();
   }
 
@@ -36,8 +35,7 @@ export class AppComponent {
       const url = this.router.url;
       if (!this.routerOutlet.canGoBack() && url === '/home') {
         navigator['app'].exitApp();
-      }
-      else {
+      } else {
         this.location.back();
       }
     });
