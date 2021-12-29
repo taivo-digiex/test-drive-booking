@@ -1,25 +1,27 @@
 import { Component, OnInit } from '@angular/core';
 import { LanguageService } from 'src/app/services/language/language.service';
 import { ThemeService } from '../../services/theme/theme.service';
+import { Location } from '@angular/common';
 
 @Component({
-  selector: 'app-setting',
-  templateUrl: './setting.page.html',
-  styleUrls: ['./setting.page.scss'],
+  selector: 'app-settings',
+  templateUrl: './settings.page.html',
+  styleUrls: ['./settings.page.scss'],
 })
-export class SettingPage implements OnInit {
+export class SettingsPage implements OnInit {
 
   public darkValue: any;
   public aboutIcon: string = 'alert-circle';
   public darkIcon: string = 'moon';
-  public lightIcon: string = 'sunny';
+  public autoIcon: string = 'contrast';
   public langIcon: string = 'language';
   public languages = [];
   public selected = '';
 
   constructor(
     private ThemeService: ThemeService,
-    private languageService: LanguageService) { }
+    private languageService: LanguageService,
+    private location: Location) { }
 
   get darkBoolean() {
     return this.ThemeService.sharedDarkValue;
@@ -42,6 +44,10 @@ export class SettingPage implements OnInit {
   select(ev) {
     const lng = ev.target.value;
     this.languageService.setLanguage(lng);
+  }
+
+  back() {
+    this.location.back();
   }
 
 }

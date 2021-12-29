@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { ListCardComponent } from './list-card.component';
+import { SettingsPage } from './settings.page';
 
-describe('ListCardComponent', () => {
-  let component: ListCardComponent;
-  let fixture: ComponentFixture<ListCardComponent>;
+describe('SettingsPage', () => {
+  let component: SettingsPage;
+  let fixture: ComponentFixture<SettingsPage>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ ListCardComponent ],
+      declarations: [SettingsPage],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(ListCardComponent);
+    fixture = TestBed.createComponent(SettingsPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));
