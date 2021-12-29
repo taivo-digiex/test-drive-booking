@@ -1,0 +1,16 @@
+<ion-card>
+  <ion-row>
+    <ion-img
+      src="{{ car.img }}"
+      alt="{{ car.brand }} {{ car.name }}"
+      class="vehicle-img"
+    ></ion-img>
+
+    <ion-col>
+      <ion-label>
+        <strong> {{ car.brand }} {{ car.name }} </strong>
+      </ion-label>
+      <ion-note>{{ car.year }}</ion-note>
+    </ion-col>
+  </ion-row>
+</ion-card>

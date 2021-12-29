@@ -5,9 +5,10 @@ import { FormsModule } from '@angular/forms';
 import { HomePage } from './home.page';
 
 import { HomePageRoutingModule } from './home-routing.module';
-import { ListCardComponentModule } from './components/list-card/list-card.module';
+import { VehicleCardComponentModule } from './components/vehicle-card/vehicle-card.module';
 import { SearchBarModule } from './components/search-bar/search-bar.module';
 import { TranslateModule } from '@ngx-translate/core';
+import { SwiperModule } from 'swiper/angular';
 
 @NgModule({
   imports: [
@@ -15,10 +16,11 @@ import { TranslateModule } from '@ngx-translate/core';
     CommonModule,
     FormsModule,
     HomePageRoutingModule,
-    ListCardComponentModule,
+    VehicleCardComponentModule,
     SearchBarModule,
-    TranslateModule
+    TranslateModule,
+    SwiperModule,
   ],
-  declarations: [HomePage]
+  declarations: [HomePage],
 })
 export class HomePageModule {}

@@ -6,6 +6,7 @@ import { VehicleDetailPageRoutingModule } from './vehicle-detail-routing.module'
 import { VehicleDetailPage } from './vehicle-detail.page';
 import { ModalComponent } from './components/modal/modal.component';
 import { TranslateModule } from '@ngx-translate/core';
+import { SwiperModule } from 'swiper/angular';
 
 @NgModule({
   imports: [
@@ -14,7 +15,8 @@ import { TranslateModule } from '@ngx-translate/core';
     IonicModule,
     VehicleDetailPageRoutingModule,
     ReactiveFormsModule,
-    TranslateModule
+    TranslateModule,
+    SwiperModule
   ],
   declarations: [VehicleDetailPage, ModalComponent],
   entryComponents: [ModalComponent]

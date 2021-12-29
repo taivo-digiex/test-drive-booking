@@ -9,7 +9,7 @@
   "COMMON": {
     "about": "Thông tin",
     "darkMode": "Chế độ tối",
-    "lightMode": "Chế độ sáng",
+    "sysDefault": "Theo hệ thống",
     "languages": "Ngôn ngữ",
     "search...": "Tìm kiếm...",
     "engine": "Động cơ",
@@ -26,7 +26,8 @@
     "Hybrid": "Hybrid",
     "Electric": "Điện",
     "cancel": "Hủy",
-    "confirm": "Xác nhận"
+    "confirm": "Xác nhận",
+    "connectWithMeOn": "Kết nối với tôi trên"
   },
 
   "OTHER": {

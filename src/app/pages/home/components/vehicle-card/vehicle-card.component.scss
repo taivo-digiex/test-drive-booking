@@ -1,0 +1,24 @@
+ion-label {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 15px;
+}
+
+.vehicle-img {
+  max-width: 120px;
+  margin-right: 10px;
+  max-height: 105px;
+  width: 120px;
+  height: 105px;
+}
+
+ion-row {
+  margin: 0 10px;
+}
+
+ion-col {
+  place-self: center;
+}
